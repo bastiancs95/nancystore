@@ -1,0 +1,65 @@
+---
+const base = import.meta.env.BASE_URL;
+const navLinks = [
+  { href: `${base}nosotras`, label: 'Nosotras' },
+  { href: `${base}catalogo`, label: 'Catálogo' },
+  { href: `${base}contacto`, label: 'Contacto' },
+];
+---
+
+<header class="sticky top-0 z-40 bg-[var(--color-cream)] border-b border-[var(--color-gray-lt)]">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href={base} class="brand text-2xl font-semibold tracking-wide text-[var(--color-black)]">
+      Nancy
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="text-sm tracking-widest uppercase text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href="https://instagram.com/"
+        target="_blank"
+        rel="noopener"
+        aria-label="Instagram"
+        class="text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+        </svg>
+      </a>
+    </nav>
+
+    <!-- Mobile hamburger (CSS-only toggle) -->
+    <label class="md:hidden cursor-pointer" for="menu-toggle" aria-label="Abrir menú">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </label>
+  </div>
+
+  <!-- Mobile menu -->
+  <input type="checkbox" id="menu-toggle" class="hidden peer" />
+  <nav class="hidden peer-checked:block md:hidden border-t border-[var(--color-gray-lt)] bg-[var(--color-cream)]">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-col gap-4">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="text-sm tracking-widest uppercase text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+</header>

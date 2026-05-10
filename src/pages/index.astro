@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Inicio" description="Nancy — Ropa de confección nacional para mujeres. Puerto Montt, Chile.">
+  <section class="max-w-6xl mx-auto px-6 py-32 text-center">
+    <h1 class="text-5xl md:text-7xl font-medium text-[var(--color-black)] mb-6">
+      Hecho para ti
+    </h1>
+    <p class="text-lg text-[var(--color-gray)] mb-10 max-w-xl mx-auto leading-relaxed">
+      Prendas de confección nacional. Diseñadas y elaboradas en Puerto Montt.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a
+        href="/nancystore/catalogo"
+        class="px-8 py-3 bg-[var(--color-burgundy)] text-white text-sm tracking-widest uppercase hover:bg-[var(--color-burgundy-hover)] transition-colors"
+      >
+        Ver catálogo
+      </a>
+    </div>
+  </section>
+</BaseLayout>

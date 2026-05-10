@@ -1,0 +1,20 @@
+---
+const base = import.meta.env.BASE_URL;
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-[var(--color-gray-lt)] mt-20">
+  <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+    <a href={base} class="brand text-xl font-semibold tracking-wide text-[var(--color-black)]">
+      Nancy
+    </a>
+
+    <nav class="flex gap-6">
+      <a href={`${base}nosotras`} class="text-sm text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors">Nosotras</a>
+      <a href={`${base}catalogo`} class="text-sm text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors">Catálogo</a>
+      <a href={`${base}contacto`} class="text-sm text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors">Contacto</a>
+    </nav>
+
+    <p class="text-sm text-[var(--color-gray)]">© {year} Nancy. Puerto Montt, Chile.</p>
+  </div>
+</footer>
