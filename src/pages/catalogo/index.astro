@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CategoryFilter from '../../components/CategoryFilter.astro';
+import ProductGrid from '../../components/ProductGrid.astro';
+import { productos } from '../../data/productos';
+---
+
+<BaseLayout
+  title="Catálogo"
+  description="Colección Nancy — vestidos de huasa, conjuntos y más. Confección nacional en Puerto Montt."
+>
+  <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <header class="text-center mb-12">
+      <h1 class="text-4xl md:text-6xl font-medium text-[var(--color-black)] mb-4">Colección</h1>
+      <p class="text-[var(--color-gray)]">{productos.length} prendas disponibles · Consulta por WhatsApp</p>
+    </header>
+
+    <CategoryFilter />
+    <ProductGrid productos={productos} />
+  </section>
+</BaseLayout>

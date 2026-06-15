@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+const waLink = `https://wa.me/56983878181?text=${encodeURIComponent('Hola Nancy, quiero conocer su colección')}`;
+
+const valores = [
+  { titulo: 'Confección propia', texto: 'Cada prenda se diseña y confecciona en nuestro taller en Puerto Montt. Nada de reventa.' },
+  { titulo: 'Atención personalizada', texto: 'Te ayudamos a elegir talla y color por WhatsApp. Si necesitas algo a medida, lo hacemos.' },
+  { titulo: 'Para cuerpos reales', texto: 'Diseñamos pensando en mujeres de verdad, en todas las tallas.' },
+];
+---
+
+<BaseLayout
+  title="Nosotras"
+  description="La historia de Nancy: confección nacional con taller propio en Puerto Montt."
+>
+  <section class="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
+    <img src={base + 'images/marca/Nancy-Vertical.png'} alt="Nancy" class="h-24 md:h-32 mx-auto mb-10" />
+    <h1 class="text-4xl md:text-6xl font-medium text-[var(--color-black)] mb-8">Nuestra historia</h1>
+    <div class="text-left space-y-5 text-base md:text-lg leading-relaxed text-[var(--color-gray)]">
+      <p>
+        Nancy nace en Puerto Montt, del trabajo de una familia que lleva años confeccionando ropa
+        con sus propias manos. Lo que empezó en casa, entre telas y una máquina de coser, hoy es un
+        taller donde cada prenda se piensa, se corta y se cose con dedicación.
+      </p>
+      <p>
+        Creemos en la confección nacional y en la ropa hecha para durar. Por eso elegimos buenos
+        géneros, cuidamos las terminaciones y atendemos a cada clienta como se merece: con tiempo y
+        cercanía.
+      </p>
+      <p>
+        Nuestra especialidad son los vestidos de huasa para Fiestas Patrias y los conjuntos
+        elegantes, pero lo que más nos gusta es ver a cada mujer lucir cómoda y bonita con algo
+        hecho especialmente para ella.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+    <div class="grid md:grid-cols-3 gap-10">
+      {valores.map((v) => (
+        <div class="text-center">
+          <h3 class="brand text-2xl text-[var(--color-burgundy)] mb-3">{v.titulo}</h3>
+          <p class="text-[var(--color-gray)] leading-relaxed">{v.texto}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-burgundy)] text-white">
+    <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+      <h2 class="text-2xl md:text-4xl font-medium mb-6">Conoce nuestra colección</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href={`${base}catalogo`} class="px-8 py-3 bg-white text-[var(--color-burgundy)] text-sm tracking-widest uppercase hover:bg-[var(--color-cream)] transition-colors">
+          Ver catálogo
+        </a>
+        <a href={waLink} target="_blank" rel="noopener" class="px-8 py-3 border border-white text-white text-sm tracking-widest uppercase hover:bg-white hover:text-[var(--color-burgundy)] transition-colors">
+          Escríbenos
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

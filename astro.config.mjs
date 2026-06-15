@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://bastiancs95.github.io',
-  base: '/nancystore',
+  base: '/nancystore/',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],

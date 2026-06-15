@@ -1,0 +1,48 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+const WHATSAPP_NUMBER = '56983878181';
+const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Nancy, quiero hacer una consulta')}`;
+const instagram = 'https://instagram.com/confeccionespuertomontt';
+---
+
+<BaseLayout
+  title="Contacto"
+  description="Escríbenos por WhatsApp o Instagram. Confección nacional en Puerto Montt."
+>
+  <section class="max-w-3xl mx-auto px-6 py-20 md:py-28 text-center">
+    <h1 class="text-4xl md:text-6xl font-medium text-[var(--color-black)] mb-6">Contacto</h1>
+    <p class="text-lg text-[var(--color-gray)] mb-12 max-w-xl mx-auto leading-relaxed">
+      La forma más rápida de comprar es por WhatsApp. Te ayudamos a elegir talla, color y coordinamos
+      el pago y la entrega.
+    </p>
+
+    <div class="space-y-8 text-left">
+      <div class="flex items-start gap-4 border-b border-[var(--color-gray-lt)] pb-6">
+        <span class="text-sm tracking-widest uppercase text-[var(--color-gray)] w-28 shrink-0 pt-1">WhatsApp</span>
+        <a href={waLink} target="_blank" rel="noopener" class="text-lg text-[var(--color-burgundy)] hover:underline">
+          +56 9 8387 8181
+        </a>
+      </div>
+      <div class="flex items-start gap-4 border-b border-[var(--color-gray-lt)] pb-6">
+        <span class="text-sm tracking-widest uppercase text-[var(--color-gray)] w-28 shrink-0 pt-1">Instagram</span>
+        <a href={instagram} target="_blank" rel="noopener" class="text-lg text-[var(--color-burgundy)] hover:underline">
+          @confeccionespuertomontt
+        </a>
+      </div>
+      <div class="flex items-start gap-4 border-b border-[var(--color-gray-lt)] pb-6">
+        <span class="text-sm tracking-widest uppercase text-[var(--color-gray)] w-28 shrink-0 pt-1">Ubicación</span>
+        <span class="text-lg text-[var(--color-black)]">Puerto Montt, Región de Los Lagos</span>
+      </div>
+    </div>
+
+    <a
+      href={waLink}
+      target="_blank"
+      rel="noopener"
+      class="inline-block mt-12 px-8 py-4 bg-[var(--color-burgundy)] text-white text-sm tracking-widest uppercase hover:bg-[var(--color-burgundy-hover)] transition-colors"
+    >
+      Escríbenos por WhatsApp
+    </a>
+  </section>
+</BaseLayout>

@@ -1,0 +1,42 @@
+---
+import { categorias } from '../data/productos';
+const opciones = [{ id: 'todos', label: 'Todos' }, ...categorias];
+---
+
+<div class="flex flex-wrap gap-3 justify-center mb-12" data-filtros>
+  {opciones.map((o, i) => (
+    <button
+      type="button"
+      data-filtro={o.id}
+      class:list={[
+        'px-5 py-2 text-sm tracking-widest uppercase border transition-colors',
+        i === 0
+          ? 'bg-[var(--color-burgundy)] text-white border-[var(--color-burgundy)]'
+          : 'bg-transparent text-[var(--color-gray)] border-[var(--color-gray-lt)] hover:border-[var(--color-burgundy)] hover:text-[var(--color-burgundy)]',
+      ]}
+    >
+      {o.label}
+    </button>
+  ))}
+</div>
+
+<script>
+  const cont = document.querySelector('[data-filtros]');
+  if (cont) {
+    const botones = cont.querySelectorAll<HTMLButtonElement>('[data-filtro]');
+    const activa = 'bg-[var(--color-burgundy)] text-white border-[var(--color-burgundy)]';
+    const inactiva = 'bg-transparent text-[var(--color-gray)] border-[var(--color-gray-lt)] hover:border-[var(--color-burgundy)] hover:text-[var(--color-burgundy)]';
+    botones.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const filtro = btn.dataset.filtro;
+        botones.forEach((b) => {
+          b.className = b.className.replace(activa, '').replace(inactiva, '').trim();
+          b.className += ' ' + (b === btn ? activa : inactiva);
+        });
+        document.querySelectorAll<HTMLElement>('[data-categoria]').forEach((card) => {
+          card.style.display = filtro === 'todos' || card.dataset.categoria === filtro ? '' : 'none';
+        });
+      });
+    });
+  }
+</script>

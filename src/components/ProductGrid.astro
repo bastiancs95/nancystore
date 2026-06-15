@@ -1,0 +1,9 @@
+---
+import type { Producto } from '../data/productos';
+import ProductCard from './ProductCard.astro';
+const { productos } = Astro.props as { productos: Producto[] };
+---
+
+<div class="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10">
+  {productos.map((producto) => <ProductCard producto={producto} />)}
+</div>
