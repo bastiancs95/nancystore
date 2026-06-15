@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://bastiancs95.github.io',
-  base: '/nancystore/',
+  site: 'https://www.confeccionesnancy.cl',
+  base: '/',
   output: 'static',
   vite: {
     plugins: [tailwindcss()],
