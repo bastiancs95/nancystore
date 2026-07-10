@@ -68,6 +68,7 @@ export const productos: Producto[] = [
     descripcion:
       'Abrigo negro largo con botones y cuello camisero, entallado en la cintura. Un clásico que combina con todo. Hecho en Puerto Montt.',
     imagenes: [IA + 'Traje_Negro01.png'],
+    destacado: true,
     nuevo: true,
   },
   {
@@ -87,6 +88,7 @@ export const productos: Producto[] = [
     descripcion:
       'Blazer corto con estampado floral en blanco y negro, sin cierre y de línea recta. Dale personalidad a un look sobrio. Confección propia.',
     imagenes: [IA + 'Blazer_Print.png'],
+    destacado: true,
     nuevo: true,
   },
   {
@@ -144,7 +146,6 @@ export const productos: Producto[] = [
     descripcion:
       'Vestido de china con pechera roja y estampado de copihues, falda con vuelo y volante a juego. Confección propia en nuestro taller de Puerto Montt.',
     imagenes: [FP + 'VR01.jpg', FP + 'CR01.jpg'],
-    destacado: true,
   },
   {
     slug: 'vestido-huasa-rojo-rosas',
@@ -186,7 +187,6 @@ export const productos: Producto[] = [
     descripcion:
       'Vestido de china fucsia con estampado de rosas en blanco y negro, falda amplia y volante a tono. Color que destaca en cualquier baile.',
     imagenes: [FP + '001R.jpg'],
-    destacado: true,
   },
   {
     slug: 'vestido-huasa-azul-rosas',
@@ -211,7 +211,6 @@ export const productos: Producto[] = [
     descripcion:
       'Vestido de china azul con delantal floreado y enagua de encaje blanco con vuelo, perfecto para el zapateo de la cueca.',
     imagenes: [FP + '001A.jpg', FP + 'VA02.jpg'],
-    destacado: true,
   },
   {
     slug: 'vestido-huasa-celeste',
@@ -228,7 +227,6 @@ export const productos: Producto[] = [
     descripcion:
       'Vestido de china morado con delantal de flores y volante a tono, falda con mucho vuelo para lucir bailando.',
     imagenes: [FP + 'VM01.jpg', FP + '001M.jpg', FP + 'CM01.jpg'],
-    destacado: true,
   },
   {
     slug: 'vestido-huasa-negro-flores',
