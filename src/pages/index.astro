@@ -1,12 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductGrid from '../components/ProductGrid.astro';
-import { productosDestacados } from '../data/productos';
+import { productoPorSlug } from '../data/productos';
 import { waLink as buildWaLink } from '../data/site';
 
 const base = import.meta.env.BASE_URL;
 const waLink = buildWaLink('Hola Nancy, me gustaría consultar sobre sus prendas');
-const destacados = productosDestacados.slice(0, 6);
+const destacadosSlugs = [
+  'abrigo-negro',
+  'blazer-print-floral',
+  'abrigo-gamuza-cafe',
+  'chaleco-azul-blusa',
+  'blazer-negro',
+  'conjunto-rosa',
+];
+const destacados = destacadosSlugs.map((slug) => productoPorSlug(slug)!);
 ---
 
 <BaseLayout title="Inicio" description="Nancy — Ropa de confección nacional para mujeres. Puerto Montt, Chile.">
