@@ -2,15 +2,21 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProductGrid from '../components/ProductGrid.astro';
 import { productosDestacados } from '../data/productos';
+import { waLink as buildWaLink } from '../data/site';
 
 const base = import.meta.env.BASE_URL;
-const waLink = `https://wa.me/56983878181?text=${encodeURIComponent('Hola Nancy, me gustaría consultar sobre sus prendas')}`;
+const waLink = buildWaLink('Hola Nancy, me gustaría consultar sobre sus prendas');
 const destacados = productosDestacados.slice(0, 6);
 ---
 
 <BaseLayout title="Inicio" description="Nancy — Ropa de confección nacional para mujeres. Puerto Montt, Chile.">
   <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 py-24 md:py-32 text-center">
+  <section class="max-w-6xl mx-auto px-6 py-12 md:py-16 text-center">
+    <img
+      src={base + 'images/marca/Nancy-Hero.png'}
+      alt="Nancy — Confección Nacional"
+      class="h-32 md:h-44 mx-auto object-contain mb-10"
+    />
     <h1 class="text-5xl md:text-7xl font-medium text-[var(--color-black)] mb-6">Hecho para ti</h1>
     <p class="text-lg text-[var(--color-gray)] mb-10 max-w-xl mx-auto leading-relaxed">
       Prendas de confección nacional. Diseñadas y elaboradas en Puerto Montt.
@@ -42,6 +48,25 @@ const destacados = productosDestacados.slice(0, 6);
         <span class="px-6 py-2 bg-white text-[var(--color-burgundy)] text-sm tracking-widest uppercase">Ver colección</span>
       </div>
     </a>
+  </section>
+
+  <!-- Servicios -->
+  <section class="max-w-6xl mx-auto px-6 pb-20">
+    <h2 class="text-3xl md:text-4xl font-medium text-[var(--color-black)] text-center mb-12">Nuestros servicios</h2>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <div class="border border-[var(--color-gray-lt)] p-8 text-center">
+        <p class="text-sm tracking-widest uppercase text-[var(--color-burgundy)] mb-3">Envíos</p>
+        <p class="text-[var(--color-gray)] leading-relaxed">Realizamos envíos para que recibas tu prenda donde estés.</p>
+      </div>
+      <div class="border border-[var(--color-gray-lt)] p-8 text-center">
+        <p class="text-sm tracking-widest uppercase text-[var(--color-burgundy)] mb-3">Confección a medida</p>
+        <p class="text-[var(--color-gray)] leading-relaxed">Confeccionamos a tu medida, en tu color y tu talla.</p>
+      </div>
+      <div class="border border-[var(--color-gray-lt)] p-8 text-center">
+        <p class="text-sm tracking-widest uppercase text-[var(--color-burgundy)] mb-3">Visitas a instituciones</p>
+        <p class="text-[var(--color-gray)] leading-relaxed">Vamos dentro de la provincia a tomar medidas a colegios, iglesias evangélicas e instituciones.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Destacados -->

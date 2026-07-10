@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { WHATSAPP_NUMEROS, waLink as buildWaLink } from '../data/site';
 const base = import.meta.env.BASE_URL;
-const WHATSAPP_NUMBER = '56983878181';
-const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Hola Nancy, quiero hacer una consulta')}`;
+const MSG = 'Hola Nancy, quiero hacer una consulta';
+const waLink = buildWaLink(MSG);
 const instagram = 'https://instagram.com/confeccionespuertomontt';
 ---
 
@@ -20,9 +21,20 @@ const instagram = 'https://instagram.com/confeccionespuertomontt';
     <div class="space-y-8 text-left">
       <div class="flex items-start gap-4 border-b border-[var(--color-gray-lt)] pb-6">
         <span class="text-sm tracking-widest uppercase text-[var(--color-gray)] w-28 shrink-0 pt-1">WhatsApp</span>
-        <a href={waLink} target="_blank" rel="noopener" class="text-lg text-[var(--color-burgundy)] hover:underline">
-          +56 9 8387 8181
-        </a>
+        <div class="flex flex-col gap-2">
+          {WHATSAPP_NUMEROS.map((n) => (
+            <a href={buildWaLink(MSG, n.numero)} target="_blank" rel="noopener" class="text-lg text-[var(--color-burgundy)] hover:underline">
+              {n.display}
+              <span class="text-sm text-[var(--color-gray)]">· {n.etiqueta}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+      <div class="flex items-start gap-4 border-b border-[var(--color-gray-lt)] pb-6">
+        <span class="text-sm tracking-widest uppercase text-[var(--color-gray)] w-28 shrink-0 pt-1">Servicios</span>
+        <span class="text-lg text-[var(--color-black)]">
+          Envíos, confección a medida y visitas dentro de la provincia para tomar medidas a colegios, iglesias evangélicas e instituciones.
+        </span>
       </div>
       <div class="flex items-start gap-4 border-b border-[var(--color-gray-lt)] pb-6">
         <span class="text-sm tracking-widest uppercase text-[var(--color-gray)] w-28 shrink-0 pt-1">Instagram</span>

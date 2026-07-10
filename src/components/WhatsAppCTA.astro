@@ -1,7 +1,6 @@
 ---
-const WHATSAPP_NUMBER = '56983878181';
-const DEFAULT_MSG = encodeURIComponent('Hola Nancy, me gustaría consultar sobre sus prendas');
-const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_MSG}`;
+import { waLink } from '../data/site';
+const href = waLink('Hola Nancy, me gustaría consultar sobre sus prendas');
 ---
 
 <a

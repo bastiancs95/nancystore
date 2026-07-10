@@ -1,4 +1,10 @@
-export type Categoria = 'fiestas-patrias' | 'conjuntos' | 'accesorios';
+export type Categoria =
+  | 'vestidos'
+  | 'conjuntos'
+  | 'blazer'
+  | 'abrigos'
+  | 'pantalones'
+  | 'fiestas-patrias';
 
 export interface Producto {
   slug: string;
@@ -12,15 +18,124 @@ export interface Producto {
 }
 
 export const categorias: { id: Categoria; label: string }[] = [
-  { id: 'fiestas-patrias', label: 'Fiestas Patrias' },
+  { id: 'vestidos', label: 'Vestidos' },
   { id: 'conjuntos', label: 'Conjuntos' },
-  { id: 'accesorios', label: 'Accesorios' },
+  { id: 'blazer', label: 'Blazer' },
+  { id: 'abrigos', label: 'Abrigos' },
+  { id: 'pantalones', label: 'Pantalones' },
+  { id: 'fiestas-patrias', label: 'Fiestas Patrias' },
 ];
 
 const FP = 'images/productos/fiestas-patrias/';
 const CAT = 'images/productos/catalogo/';
+const IA = 'images/productos/catalogo-ia/';
 
 export const productos: Producto[] = [
+  // ───────────── Colección nueva (fotos 2026) ─────────────
+  {
+    slug: 'vestido-negro-encaje',
+    nombre: 'Vestido Negro con Encaje',
+    categoria: 'vestidos',
+    descripcion:
+      'Vestido negro con falda en A, mangas cortas de encaje y cintura con aplicaciones brillantes. Elegante para eventos de día y noche. Confección nacional.',
+    imagenes: [IA + 'Vestido_Negro01.png'],
+    destacado: true,
+    nuevo: true,
+  },
+  {
+    slug: 'abrigo-rosa',
+    nombre: 'Abrigo Rosa',
+    categoria: 'abrigos',
+    descripcion:
+      'Abrigo largo rosa sin cierre, con bolsillos delanteros y tejido suave jaspeado. Abriga con estilo en el sur. Confección propia en Puerto Montt.',
+    imagenes: [IA + 'Abrigo_Rosa.png'],
+    destacado: true,
+    nuevo: true,
+  },
+  {
+    slug: 'abrigo-gamuza-cafe',
+    nombre: 'Abrigo Gamuza Café',
+    categoria: 'abrigos',
+    descripcion:
+      'Abrigo de gamuza café con botones, cuello camisero y bolsillos laterales. Corte entallado que estiliza la figura. Confección nacional.',
+    imagenes: [IA + 'Traje_Cafe01.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'abrigo-negro',
+    nombre: 'Abrigo Negro',
+    categoria: 'abrigos',
+    descripcion:
+      'Abrigo negro largo con botones y cuello camisero, entallado en la cintura. Un clásico que combina con todo. Hecho en Puerto Montt.',
+    imagenes: [IA + 'Traje_Negro01.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'blazer-negro',
+    nombre: 'Blazer Negro',
+    categoria: 'blazer',
+    descripcion:
+      'Blazer negro clásico con solapa y botones, perfecto para la oficina o eventos formales. Se luce con blusa blanca y pantalón de vestir. Confección nacional.',
+    imagenes: [IA + 'Blazer_Negro01.png', IA + 'Blazer_Negro.png'],
+    destacado: true,
+    nuevo: true,
+  },
+  {
+    slug: 'blazer-print-floral',
+    nombre: 'Blazer Print Floral',
+    categoria: 'blazer',
+    descripcion:
+      'Blazer corto con estampado floral en blanco y negro, sin cierre y de línea recta. Dale personalidad a un look sobrio. Confección propia.',
+    imagenes: [IA + 'Blazer_Print.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'blazer-gamuza-roja',
+    nombre: 'Blazer Gamuza Roja',
+    categoria: 'blazer',
+    descripcion:
+      'Blazer de gamuza roja con botones y bolsillos delanteros. Un golpe de color para el día a día. Confección nacional en Puerto Montt.',
+    imagenes: [IA + 'Gamusa_Rojo01.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'conjunto-rosa',
+    nombre: 'Conjunto Rosa',
+    categoria: 'conjuntos',
+    descripcion:
+      'Conjunto de abrigo rosa liviano y vestido con estampado de hojas. Femenino y cómodo para toda ocasión. Confección propia.',
+    imagenes: [IA + 'Conjunto_Rosa.png'],
+    destacado: true,
+    nuevo: true,
+  },
+  {
+    slug: 'conjunto-chaqueta-encaje-azul',
+    nombre: 'Conjunto Chaqueta Encaje Azul',
+    categoria: 'conjuntos',
+    descripcion:
+      'Vestido negro con falda de vuelo y chaqueta de encaje azul rey con brillos. Conjunto sofisticado para ocasiones especiales. Confección nacional.',
+    imagenes: [IA + 'Encaje_Azul.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'blusa-blanca',
+    nombre: 'Blusa Blanca',
+    categoria: 'conjuntos',
+    descripcion:
+      'Blusa blanca clásica de manga larga, ideal con pantalón de vestir para un look de oficina impecable. Confección nacional.',
+    imagenes: [IA + 'Blusa_Blanca.jpg'],
+    nuevo: true,
+  },
+  {
+    slug: 'chaleco-azul-blusa',
+    nombre: 'Chaleco Azul + Blusa',
+    categoria: 'conjuntos',
+    descripcion:
+      'Chaleco azul con botones sobre blusa blanca de manga larga. Conjunto versátil para el trabajo o el día a día. Confección propia en Puerto Montt.',
+    imagenes: [IA + 'Blusa_Blaizer.png'],
+    nuevo: true,
+  },
+
   // ───────────── Fiestas Patrias — Vestidos de huasa ─────────────
   {
     slug: 'vestido-huasa-rojo-copihue',
@@ -142,7 +257,7 @@ export const productos: Producto[] = [
   {
     slug: 'enagua-can-can',
     nombre: 'Enagua Can-Can',
-    categoria: 'accesorios',
+    categoria: 'fiestas-patrias',
     descripcion:
       'Enagua de tul con tres vuelos y cinta de raso, para dar volumen a tu vestido de china. Complemento ideal para tu traje de huasa.',
     imagenes: [FP + 'VF01.jpg'],

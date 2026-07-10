@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductGrid from '../../components/ProductGrid.astro';
 import { productos, productosPorCategoria } from '../../data/productos';
+import { waLink as buildWaLink } from '../../data/site';
 
 export function getStaticPaths() {
   return productos.map((producto) => ({
@@ -14,11 +15,9 @@ const { producto } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const tallas = producto.tallas ?? ['S', 'M', 'L', 'XL', '2XL'];
 
-const WHATSAPP_NUMBER = '56983878181';
-const msg = encodeURIComponent(
+const waLink = buildWaLink(
   `Hola Nancy, me interesa el producto "${producto.nombre}". ¿Está disponible? ¿Qué tallas tienen?`,
 );
-const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 
 const relacionados = productosPorCategoria(producto.categoria)
   .filter((p) => p.slug !== producto.slug)

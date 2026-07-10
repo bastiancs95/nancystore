@@ -33,9 +33,13 @@ const opciones = [{ id: 'todos', label: 'Todos' }, ...categorias];
           b.className = b.className.replace(activa, '').replace(inactiva, '').trim();
           b.className += ' ' + (b === btn ? activa : inactiva);
         });
+        let visibles = 0;
         document.querySelectorAll<HTMLElement>('[data-categoria]').forEach((card) => {
-          card.style.display = filtro === 'todos' || card.dataset.categoria === filtro ? '' : 'none';
+          const visible = filtro === 'todos' || card.dataset.categoria === filtro;
+          card.style.display = visible ? '' : 'none';
+          if (visible) visibles++;
         });
+        document.querySelector('[data-sin-productos]')?.classList.toggle('hidden', visibles > 0);
       });
     });
   }

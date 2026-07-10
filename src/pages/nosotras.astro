@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { waLink as buildWaLink } from '../data/site';
 const base = import.meta.env.BASE_URL;
-const waLink = `https://wa.me/56983878181?text=${encodeURIComponent('Hola Nancy, quiero conocer su colección')}`;
+const waLink = buildWaLink('Hola Nancy, quiero conocer su colección');
 
 const valores = [
   { titulo: 'Confección propia', texto: 'Cada prenda se diseña y confecciona en nuestro taller en Puerto Montt. Nada de reventa.' },
