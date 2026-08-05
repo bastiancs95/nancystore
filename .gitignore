@@ -1,5 +1,8 @@
 # build output
 dist/
+
+# fotos originales sin comprimir (uso interno: Canva, ads)
+fotos-originales/
 # generated types
 .astro/
 

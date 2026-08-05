@@ -26,7 +26,7 @@ export const categorias: { id: Categoria; label: string }[] = [
   { id: 'fiestas-patrias', label: 'Fiestas Patrias' },
 ];
 
-const FP = 'images/productos/fiestas-patrias/';
+const FP = 'images/productos/fiestas-patrias-2026/';
 const CAT = 'images/productos/catalogo/';
 const IA = 'images/productos/catalogo-ia/';
 
@@ -138,119 +138,78 @@ export const productos: Producto[] = [
     nuevo: true,
   },
 
-  // ───────────── Fiestas Patrias — Vestidos de huasa ─────────────
+  // ───────────── Fiestas Patrias 2026 — Vestidos de huasa ─────────────
   {
-    slug: 'vestido-huasa-rojo-copihue',
-    nombre: 'Vestido de Huasa Rojo Copihue',
+    slug: 'vestido-china-azul-rey',
+    nombre: 'Vestido de China Azul Rey',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china con pechera roja y estampado de copihues, falda con vuelo y volante a juego. Confección propia en nuestro taller de Puerto Montt.',
-    imagenes: [FP + 'VR01.jpg', FP + 'CR01.jpg'],
-  },
-  {
-    slug: 'vestido-huasa-rojo-rosas',
-    nombre: 'Vestido de Huasa Rojo Rosas',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china con pechera roja lisa y falda de rosas, terminada en volante rojo con cinta. Ideal para bailar cueca con elegancia.',
-    imagenes: [FP + 'VR02.jpg'],
-  },
-  {
-    slug: 'vestido-huasa-rojo-flores',
-    nombre: 'Vestido de Huasa Rojo Flores',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china con pechera blanca de flores rojas y falda roja con volante floreado. Un clásico de las Fiestas Patrias.',
-    imagenes: [FP + 'VR03.jpg'],
-  },
-  {
-    slug: 'vestido-huasa-burdeo',
-    nombre: 'Vestido de Huasa Burdeo',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china en tono burdeo con estampado de rosas y enagua de encaje blanco que asoma en el vuelo. Confección nacional.',
-    imagenes: [FP + 'VR04.png'],
+      'Vestido de china azul rey con mangas y falda de rosas azules sobre fondo blanco, terminado en volante azul con cinta. Confección propia en nuestro taller de Puerto Montt.',
+    imagenes: [FP + 'va01.jpg'],
     nuevo: true,
   },
   {
-    slug: 'vestido-huasa-coral',
-    nombre: 'Vestido de Huasa Coral',
+    slug: 'vestido-china-burdeo',
+    nombre: 'Vestido de China Burdeo',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china en coral con pechera de rosas y falda con vuelo, pensado para lucir en la fonda. Hecho a mano en Puerto Montt.',
-    imagenes: [FP + '002R.jpg'],
+      'Vestido de china en tono burdeo con estampado de rosas y enagua de encaje blanco que asoma en el vuelo. Elegante para la fonda o el acto del colegio.',
+    imagenes: [FP + 'vb01.jpg'],
+    nuevo: true,
   },
   {
-    slug: 'vestido-huasa-fucsia',
-    nombre: 'Vestido de Huasa Fucsia',
+    slug: 'tenida-huasa-elegante',
+    nombre: 'Tenida de Huasa Elegante',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china fucsia con estampado de rosas en blanco y negro, falda amplia y volante a tono. Color que destaca en cualquier baile.',
-    imagenes: [FP + '001R.jpg'],
+      'Traje de huasa en negro con blusa de encaje blanco, cinta roja y falda larga entallada. Ideal para el jinete o la anfitriona de la fonda.',
+    imagenes: [FP + 'vf01.jpg', FP + 'vf01a.jpg'],
+    nuevo: true,
   },
   {
-    slug: 'vestido-huasa-azul-rosas',
-    nombre: 'Vestido de Huasa Azul Rosas',
+    slug: 'vestido-china-morado',
+    nombre: 'Vestido de China Morado',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china azul con delicado estampado de rosas celestes, falda con vuelo y volante azul. Confección propia.',
-    imagenes: [FP + 'VA01.jpg', FP + 'CA01.jpg'],
+      'Vestido de china morado con estampado de flores celestes y moradas, falda con doble volante morado y cinta blanca. Mucho vuelo para lucir bailando.',
+    imagenes: [FP + 'vm01.jpg'],
+    nuevo: true,
   },
   {
-    slug: 'vestido-huasa-azul-flores',
-    nombre: 'Vestido de Huasa Azul Flores',
+    slug: 'vestido-china-negro-flores',
+    nombre: 'Vestido de China Negro Flores',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china con pechera azul y falda de rosas azules sobre fondo blanco, terminada en volante. Elegante y tradicional.',
-    imagenes: [FP + 'VB01.jpg'],
+      'Vestido de china con pechera de flores en blanco y negro, falda con bolsillos y volante a juego. Sobrio y elegante, confección nacional.',
+    imagenes: [FP + 'vn01.jpg', FP + 'vn01a.jpg'],
+    nuevo: true,
   },
   {
-    slug: 'vestido-huasa-azul-vuelo-blanco',
-    nombre: 'Vestido de Huasa Azul con Enagua',
+    slug: 'vestido-china-blanco-y-negro',
+    nombre: 'Vestido de China Blanco y Negro',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china azul con delantal floreado y enagua de encaje blanco con vuelo, perfecto para el zapateo de la cueca.',
-    imagenes: [FP + '001A.jpg', FP + 'VA02.jpg'],
+      'Vestido de china con pechera y falda de flores en blanco y negro, terminado en volante a tono. Un diseño clásico y atemporal.',
+    imagenes: [FP + 'vn03.jpg', FP + 'vn03a.jpg', FP + 'vn03b.jpg'],
+    nuevo: true,
   },
   {
-    slug: 'vestido-huasa-celeste',
-    nombre: 'Vestido de Huasa Celeste',
+    slug: 'vestido-china-fucsia-rosas',
+    nombre: 'Vestido de China Fucsia Rosas',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china en celeste turquesa con estampado de rosas y volante a juego. Confección nacional en Puerto Montt.',
-    imagenes: [FP + 'VC01.jpg'],
+      'Vestido de china con pechera fucsia y falda de rosas rojas y blancas sobre fondo negro, volante fucsia con cinta. Color que destaca en cualquier baile.',
+    imagenes: [FP + 'vr01.jpg', FP + 'vr01a.jpg'],
+    nuevo: true,
   },
   {
-    slug: 'vestido-huasa-morado',
-    nombre: 'Vestido de Huasa Morado',
+    slug: 'vestido-china-rojo-hojas',
+    nombre: 'Vestido de China Rojo',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de china morado con delantal de flores y volante a tono, falda con mucho vuelo para lucir bailando.',
-    imagenes: [FP + 'VM01.jpg', FP + '001M.jpg', FP + 'CM01.jpg'],
-  },
-  {
-    slug: 'vestido-huasa-negro-flores',
-    nombre: 'Vestido de Huasa Negro Flores',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china con pechera de flores en blanco y negro y delantal negro con volante floreado. Sobrio y elegante.',
-    imagenes: [FP + 'VN01.jpg', FP + 'CN01.jpg'],
-  },
-  {
-    slug: 'vestido-huasa-negro-blanco',
-    nombre: 'Vestido de Huasa Blanco y Negro',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china con pechera negra y falda blanca de flores negras, terminada en volante. Un diseño atemporal.',
-    imagenes: [FP + 'VN02.jpg', FP + 'CN02.jpg', FP + 'CN03.jpg'],
-  },
-  {
-    slug: 'vestido-huasa-blanco-flores-negras',
-    nombre: 'Vestido de Huasa Blanco Flores Negras',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china blanco con flores negras en pechera y delantal negro con volante floreado. Confección propia.',
-    imagenes: [FP + '001N.jpg'],
+      'Vestido de china con pechera roja y falda estampada en hojas y flores sobre fondo blanco, volante rojo con cinta blanca. Confección propia en Puerto Montt.',
+    imagenes: [FP + 'vr02.jpg', FP + 'vr02a.jpg'],
+    nuevo: true,
   },
   {
     slug: 'enagua-can-can',
@@ -258,7 +217,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Enagua de tul con tres vuelos y cinta de raso, para dar volumen a tu vestido de china. Complemento ideal para tu traje de huasa.',
-    imagenes: [FP + 'VF01.jpg'],
+    imagenes: [FP + 'enagua.jpg'],
   },
 
   // ───────────── Conjuntos vestido + torera ─────────────
