@@ -5,15 +5,6 @@
 > `calendario-contenido.md` — no se repite acá. Esta guía asume que nunca has
 > tocado Meta Business Suite ni Ads Manager.
 
-## ⚠️ Antes de todo: unificar el número de WhatsApp
-
-La página de Facebook muestra **+56 9 8415 9252** (es el mismo que usa la web,
-`src/data/site.ts`). Pero `estrategia-fiestas-patrias.md`, `calendario-contenido.md`
-y `copys-anuncios.md` fueron escritos con **+56 9 8387 8181** como número de cierre
-de venta. Antes de publicar nada, decide con papá/tía **cuál número contesta** y
-usa ese mismo en la página de FB, la web y todos los copys. Si es el 8415 9252 (el
-de la web), avísame y actualizo los documentos de marketing.
-
 ## 1. El mapa de la casa Meta
 
 Todo lo que administra tu negocio en Meta vive repartido en 3 lugares. Vas a usar
@@ -48,7 +39,7 @@ Desde **Configuración** de la página:
    (recomendado: `vr02.jpg`, el vestido rojo, o un collage de 2-3 colores). Hoy
    tiene la foto vieja.
 2. **Botón de acción** (junto al nombre de la página, arriba): configúralo como
-   "Enviar mensaje de WhatsApp" apuntando al número que definiste en el paso 0.
+   "Enviar mensaje de WhatsApp" apuntando al +56 9 8415 9252.
 3. **Sección "Lo más destacado"** (la que aparece en tu captura, abajo a la
    derecha): hoy tiene fotos antiguas con photoshop mal hecho. Reemplázala por
    3-4 fotos de `fiestas-patrias-2026/` (ver sección 3 para subirlas primero como
@@ -140,7 +131,7 @@ Arma la campaña en agosto para que el 1-sept solo actives el interruptor.
      con la fuente "Interacción" → selecciona tu página de Instagram y Facebook
      → últimos 90 días → "personas que interactuaron con cualquier publicación o
      anuncio". Presupuesto diario **$1.000**.
-   - En ambos: destino del mensaje = **WhatsApp** (número del paso 0), y
+   - En ambos: destino del mensaje = **WhatsApp** (+56 9 8415 9252), y
      **desactiva Advantage+ de ubicación de público** si aparece marcado —
      expande el público más allá de lo que definiste y sube el costo.
 6. En cada conjunto, **calendario**: fecha de inicio **1-sept**, fecha de
