@@ -1,0 +1,31 @@
+---
+interface Props {
+  slug: string;
+  variante?: 'icono' | 'completo';
+}
+const { slug, variante = 'icono' } = Astro.props as Props;
+const corazon = 'M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z';
+---
+
+{variante === 'icono' ? (
+  <button
+    type="button"
+    data-wishlist-toggle={slug}
+    aria-pressed="false"
+    aria-label="Guardar en lista de deseos"
+    title="Guardar en lista de deseos"
+    class="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/85 backdrop-blur-sm border border-[var(--color-gray-lt)] flex items-center justify-center text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={corazon} /></svg>
+  </button>
+) : (
+  <button
+    type="button"
+    data-wishlist-toggle={slug}
+    aria-pressed="false"
+    class="inline-flex items-center gap-2 w-full justify-center px-8 py-4 mt-3 border border-[var(--color-gray-lt)] text-[var(--color-gray)] text-sm tracking-widest uppercase hover:border-[var(--color-burgundy)] hover:text-[var(--color-burgundy)] transition-colors"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d={corazon} /></svg>
+    <span data-wishlist-label>Guardar en lista de deseos</span>
+  </button>
+)}

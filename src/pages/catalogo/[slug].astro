@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProductGrid from '../../components/ProductGrid.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
+import WishlistButton from '../../components/WishlistButton.astro';
 import { productos, productosPorCategoria } from '../../data/productos';
 import { waLink as buildWaLink } from '../../data/site';
 
@@ -32,13 +34,7 @@ const relacionados = productosPorCategoria(producto.categoria)
 
     <div class="grid md:grid-cols-2 gap-10 md:gap-16 mt-8">
       <!-- Galería -->
-      <div class="space-y-4">
-        {producto.imagenes.map((src, i) => (
-          <div class="aspect-[3/4] overflow-hidden bg-[var(--color-white)] border border-[var(--color-gray-lt)]">
-            <img src={base + src} alt={`${producto.nombre} ${i + 1}`} class="w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
+      <ProductGallery imagenes={producto.imagenes} nombre={producto.nombre} />
 
       <!-- Info -->
       <div class="md:sticky md:top-24 md:self-start">
@@ -68,6 +64,7 @@ const relacionados = productosPorCategoria(producto.categoria)
           </svg>
           Consultar por WhatsApp
         </a>
+        <WishlistButton slug={producto.slug} variante="completo" />
         <p class="text-sm text-[var(--color-gray)] mt-3 text-center">Te respondemos para coordinar talla, pago y entrega.</p>
       </div>
     </div>

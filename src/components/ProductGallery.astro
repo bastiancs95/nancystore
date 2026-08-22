@@ -1,0 +1,119 @@
+---
+interface Props {
+  imagenes: string[];
+  nombre: string;
+}
+const { imagenes, nombre } = Astro.props as Props;
+const base = import.meta.env.BASE_URL;
+const multiple = imagenes.length > 1;
+---
+
+{!multiple ? (
+  <div class="aspect-[3/4] overflow-hidden bg-[var(--color-white)] border border-[var(--color-gray-lt)]">
+    <img src={base + imagenes[0]} alt={nombre} class="w-full h-full object-cover" />
+  </div>
+) : (
+  <div class="flex flex-col-reverse md:flex-row gap-3 md:gap-4" data-galeria>
+    <!-- Miniaturas -->
+    <div class="flex md:flex-col gap-2 md:gap-3 overflow-x-auto md:overflow-visible md:w-20 shrink-0 pb-1 md:pb-0">
+      {imagenes.map((src, i) => (
+        <button
+          type="button"
+          data-thumb={i}
+          aria-label={`Ver foto ${i + 1} de ${imagenes.length}`}
+          aria-current={i === 0 ? 'true' : 'false'}
+          class:list={[
+            'w-16 md:w-full aspect-[3/4] shrink-0 overflow-hidden border bg-[var(--color-white)] transition-all',
+            i === 0
+              ? 'border-[var(--color-burgundy)] opacity-100'
+              : 'border-[var(--color-gray-lt)] opacity-60 hover:opacity-100',
+          ]}
+        >
+          <img src={base + src} alt="" loading="lazy" class="w-full h-full object-cover" />
+        </button>
+      ))}
+    </div>
+
+    <!-- Imagen principal -->
+    <div class="relative flex-1 aspect-[3/4] overflow-hidden bg-[var(--color-white)] border border-[var(--color-gray-lt)] group">
+      {imagenes.map((src, i) => (
+        <img
+          data-slide={i}
+          src={base + src}
+          alt={`${nombre} — foto ${i + 1}`}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          class:list={[
+            'absolute inset-0 w-full h-full object-cover transition-opacity duration-300',
+            i === 0 ? 'opacity-100' : 'opacity-0',
+          ]}
+        />
+      ))}
+
+      <button
+        type="button"
+        data-prev
+        aria-label="Foto anterior"
+        class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 backdrop-blur-sm border border-[var(--color-gray-lt)] flex items-center justify-center text-[var(--color-black)] shadow-sm hover:bg-white transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6" /></svg>
+      </button>
+      <button
+        type="button"
+        data-next
+        aria-label="Foto siguiente"
+        class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/85 backdrop-blur-sm border border-[var(--color-gray-lt)] flex items-center justify-center text-[var(--color-black)] shadow-sm hover:bg-white transition-colors"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6" /></svg>
+      </button>
+
+      <span
+        data-contador
+        class="absolute bottom-3 right-3 px-2.5 py-1 text-xs tracking-widest bg-white/85 backdrop-blur-sm border border-[var(--color-gray-lt)] text-[var(--color-gray)]"
+      >
+        1 / {imagenes.length}
+      </span>
+    </div>
+  </div>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-galeria]').forEach((galeria) => {
+    const slides = Array.from(galeria.querySelectorAll<HTMLImageElement>('[data-slide]'));
+    const thumbs = Array.from(galeria.querySelectorAll<HTMLButtonElement>('[data-thumb]'));
+    const contador = galeria.querySelector<HTMLElement>('[data-contador]');
+    let actual = 0;
+
+    const ir = (n: number) => {
+      actual = (n + slides.length) % slides.length;
+      slides.forEach((s, i) => {
+        s.classList.toggle('opacity-100', i === actual);
+        s.classList.toggle('opacity-0', i !== actual);
+      });
+      thumbs.forEach((t, i) => {
+        const on = i === actual;
+        t.setAttribute('aria-current', on ? 'true' : 'false');
+        t.classList.toggle('border-[var(--color-burgundy)]', on);
+        t.classList.toggle('opacity-100', on);
+        t.classList.toggle('border-[var(--color-gray-lt)]', !on);
+        t.classList.toggle('opacity-60', !on);
+      });
+      if (contador) contador.textContent = `${actual + 1} / ${slides.length}`;
+    };
+
+    thumbs.forEach((t, i) => t.addEventListener('click', () => ir(i)));
+    galeria.querySelector('[data-prev]')?.addEventListener('click', () => ir(actual - 1));
+    galeria.querySelector('[data-next]')?.addEventListener('click', () => ir(actual + 1));
+
+    galeria.addEventListener('keydown', (e) => {
+      if ((e as KeyboardEvent).key === 'ArrowLeft') ir(actual - 1);
+      if ((e as KeyboardEvent).key === 'ArrowRight') ir(actual + 1);
+    });
+
+    let x0 = 0;
+    galeria.addEventListener('touchstart', (e) => { x0 = e.changedTouches[0].clientX; }, { passive: true });
+    galeria.addEventListener('touchend', (e) => {
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) ir(actual + (dx < 0 ? 1 : -1));
+    }, { passive: true });
+  });
+</script>
