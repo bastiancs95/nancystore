@@ -1,0 +1,23 @@
+---
+import { waLink } from '../data/site';
+
+const destino = waLink('Hola! Vi sus vestidos en Instagram y quiero consultar tallas y precio 😊');
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content={`0; url=${destino}`} />
+    <title>Escríbenos por WhatsApp — Confecciones Nancy</title>
+  </head>
+  <body style="font-family: system-ui, sans-serif; background:#F7F3EE; color:#1A1A1A; display:grid; place-items:center; min-height:100vh; margin:0; text-align:center;">
+    <p>
+      Abriendo WhatsApp…<br />
+      <a href={destino} style="color:#7B2D3E;">Toca aquí si no se abre solo</a>
+    </p>
+    <script is:inline define:vars={{ destino }}>
+      window.location.replace(destino);
+    </script>
+  </body>
+</html>
