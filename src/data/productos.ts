@@ -31,53 +31,6 @@ const CAT = 'images/productos/catalogo-2026/';
 export const productos: Producto[] = [
   // ───────────── Fiestas Patrias 2026 — Vestidos de huasa ─────────────
   {
-    slug: 'vestido-china-azul-rey',
-    nombre: 'Vestido de China Azul Rey',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china azul rey con mangas abullonadas y falda de rosas azules sobre fondo blanco, rematado en volante azul con cinta. Confección propia en nuestro taller de Puerto Montt.',
-    imagenes: [CAT + 'china-azul-rey-1-panuelo.png', CAT + 'china-azul-rey-2-vuelta.png', CAT + 'china-azul-rey-3-zapateo.png'],
-    destacado: true,
-    nuevo: true,
-  },
-  {
-    slug: 'vestido-china-fucsia',
-    nombre: 'Vestido de China Fucsia',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china en fucsia con falda de rosas sobre fondo blanco y mangas abullonadas a juego. Un color que destaca bailando cueca. Confección nacional.',
-    imagenes: [CAT + 'china-fucsia-3-zapateo.png', CAT + 'china-fucsia-2-vuelta.png', CAT + 'china-fucsia-1-panuelo.png'],
-    nuevo: true,
-  },
-  {
-    slug: 'vestido-china-negro-flores',
-    nombre: 'Vestido de China Negro Flores',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china negro con falda de flores en blanco y negro, mangas abullonadas y volante a tono. Sobrio y elegante para la fonda. Confección propia.',
-    imagenes: [CAT + 'china-negro-flores-2-vuelta.png', CAT + 'china-negro-flores-1-panuelo.png', CAT + 'china-negro-flores-3-zapateo.png'],
-    nuevo: true,
-  },
-  {
-    slug: 'vestido-china-rojo-hojas',
-    nombre: 'Vestido de China Rojo Hojas',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china rojo con falda estampada en hojas y flores sobre fondo crema, mangas abullonadas y volante rojo con cinta. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'china-roja-hojas-3-zapateo.png', CAT + 'china-roja-hojas-2-vuelta.png', CAT + 'china-roja-hojas-1-panuelo.png'],
-    nuevo: true,
-  },
-  {
-    slug: 'vestido-china-rojo-copihue',
-    nombre: 'Vestido de China Rojo Copihue',
-    categoria: 'fiestas-patrias',
-    descripcion:
-      'Vestido de china rojo con falda estampada en copihues, mangas cortas y volante con cinta blanca. Nuestra flor nacional, hecha vestido. Confección nacional.',
-    imagenes: [CAT + 'rojo-copihue-3-relajada.png', CAT + 'rojo-copihue-2-vuelo.png', CAT + 'rojo-copihue-1.png'],
-    destacado: true,
-    nuevo: true,
-  },
-  {
     slug: 'tenida-huasa-elegante',
     nombre: 'Tenida de Huasa Elegante',
     categoria: 'fiestas-patrias',
@@ -94,21 +47,31 @@ export const productos: Producto[] = [
     nuevo: true,
   },
   {
-    slug: 'enagua-can-can',
-    nombre: 'Enagua Can-Can',
+    slug: 'vestido-china-rojo-hojas',
+    nombre: 'Vestido de China Rojo Hojas',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Enagua de tul con tres vuelos y cinta de raso, para dar volumen a tu vestido de china. Complemento ideal para tu traje de huasa.',
-    imagenes: [CAT + 'enagua-cancan-1.png'],
+      'Vestido de china rojo con falda estampada en hojas y flores sobre fondo crema, mangas abullonadas y volante rojo con cinta. Confección propia en Puerto Montt.',
+    imagenes: [CAT + 'china-roja-hojas-3-zapateo.png', CAT + 'china-roja-hojas-2-vuelta.png', CAT + 'china-roja-hojas-1-panuelo.png'],
+    nuevo: true,
   },
-
   {
-    slug: 'vestido-blanco-negro-floral',
-    nombre: 'Vestido Blanco y Negro Floral',
+    slug: 'vestido-china-negro-flores',
+    nombre: 'Vestido de China Negro Flores',
     categoria: 'fiestas-patrias',
     descripcion:
-      'Vestido de gala en blanco y negro, cuerpo liso con escote corazón y falda de flores en volumen, terminada en volante con cinta. Ideal para fiestas y eventos especiales.',
-    imagenes: [CAT + 'blanco-negro-2-cadera.png', CAT + 'blanco-negro-1.png', CAT + 'blanco-negro-3-hombro.png'],
+      'Vestido de china negro con falda de flores en blanco y negro, mangas abullonadas y volante a tono. Sobrio y elegante para la fonda. Confección propia.',
+    imagenes: [CAT + 'china-negro-flores-2-vuelta.png', CAT + 'china-negro-flores-1-panuelo.png', CAT + 'china-negro-flores-3-zapateo.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'vestido-china-azul-rey',
+    nombre: 'Vestido de China Azul Rey',
+    categoria: 'fiestas-patrias',
+    descripcion:
+      'Vestido de china azul rey con mangas abullonadas y falda de rosas azules sobre fondo blanco, rematado en volante azul con cinta. Confección propia en nuestro taller de Puerto Montt.',
+    imagenes: [CAT + 'china-azul-rey-1-panuelo.png', CAT + 'china-azul-rey-2-vuelta.png', CAT + 'china-azul-rey-3-zapateo.png'],
+    destacado: true,
     nuevo: true,
   },
   {
@@ -119,6 +82,42 @@ export const productos: Producto[] = [
       'Vestido lila con falda de rosas moradas, mangas abullonadas y cinta a tono. Femenino y con mucho vuelo. Confección propia en Puerto Montt.',
     imagenes: [CAT + 'lila-2-falda.png', CAT + 'lila-1.png', CAT + 'lila-3-giro.png'],
     nuevo: true,
+  },
+  {
+    slug: 'vestido-china-fucsia',
+    nombre: 'Vestido de China Fucsia',
+    categoria: 'fiestas-patrias',
+    descripcion:
+      'Vestido de china en fucsia con falda de rosas sobre fondo blanco y mangas abullonadas a juego. Un color que destaca bailando cueca. Confección nacional.',
+    imagenes: [CAT + 'china-fucsia-3-zapateo.png', CAT + 'china-fucsia-2-vuelta.png', CAT + 'china-fucsia-1-panuelo.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'vestido-china-rojo-copihue',
+    nombre: 'Vestido de China Rojo Copihue',
+    categoria: 'fiestas-patrias',
+    descripcion:
+      'Vestido de china rojo con falda estampada en copihues, mangas cortas y volante con cinta blanca. Nuestra flor nacional, hecha vestido. Confección nacional.',
+    imagenes: [CAT + 'rojo-copihue-3-relajada.png', CAT + 'rojo-copihue-2-vuelo.png', CAT + 'rojo-copihue-1.png'],
+    destacado: true,
+    nuevo: true,
+  },
+  {
+    slug: 'vestido-blanco-negro-floral',
+    nombre: 'Vestido Blanco y Negro Floral',
+    categoria: 'fiestas-patrias',
+    descripcion:
+      'Vestido de gala en blanco y negro, cuerpo liso con escote corazón y falda de flores en volumen, terminada en volante con cinta. Ideal para fiestas y eventos especiales.',
+    imagenes: [CAT + 'blanco-negro-2-cadera.png', CAT + 'blanco-negro-1.png', CAT + 'blanco-negro-3-hombro.png'],
+    nuevo: true,
+  },
+  {
+    slug: 'enagua-can-can',
+    nombre: 'Enagua Can-Can',
+    categoria: 'fiestas-patrias',
+    descripcion:
+      'Enagua de tul con tres vuelos y cinta de raso, para dar volumen a tu vestido de china. Complemento ideal para tu traje de huasa.',
+    imagenes: [CAT + 'enagua-cancan-1.png'],
   },
 
   // ───────────── Vestidos ─────────────
@@ -187,6 +186,16 @@ export const productos: Producto[] = [
     destacado: true,
     nuevo: true,
   },
+  {
+    slug: 'vestido-negro-basico',
+    nombre: 'Vestido Negro Básico',
+    categoria: 'vestidos',
+    descripcion:
+      'Vestido negro sin mangas, corte recto y escote redondo. El básico que nunca falta en el clóset, fácil de combinar. Confección nacional.',
+    imagenes: [CAT + 'negro-jumper-1-frente.png', CAT + 'negro-jumper-2-cadera.png', CAT + 'negro-jumper-3-giro.png'],
+    destacado: true,
+    nuevo: true,
+  },
 
   // ───────────── Blazer ─────────────
   {
@@ -235,16 +244,6 @@ export const productos: Producto[] = [
     descripcion:
       'Vestido negro floral con blazer negro corto encima. Un look monocromático con textura y personalidad. Confección nacional.',
     imagenes: [CAT + 'jumper-flores-negro-1-frente.png', CAT + 'jumper-flores-negro-2-cadera.png', CAT + 'jumper-flores-negro-3-paso.png'],
-    nuevo: true,
-  },
-  {
-    slug: 'conjunto-turquesa-chaqueta-encaje',
-    nombre: 'Conjunto Vestido Turquesa + Chaqueta Encaje Negra',
-    categoria: 'conjuntos',
-    descripcion:
-      'Vestido turquesa liso con chaqueta larga de encaje negro semitransparente. Un contraste elegante para la noche. Confección propia.',
-    imagenes: [CAT + 'negro-jumper-1-frente.png', CAT + 'negro-jumper-2-cadera.png', CAT + 'negro-jumper-3-giro.png'],
-    destacado: true,
     nuevo: true,
   },
   {
