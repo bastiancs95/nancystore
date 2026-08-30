@@ -46,7 +46,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china en fucsia con falda de rosas sobre fondo blanco y mangas abullonadas a juego. Un color que destaca bailando cueca. Confección nacional.',
-    imagenes: [CAT + 'china-fucsia-1-panuelo.png', CAT + 'china-fucsia-2-vuelta.png', CAT + 'china-fucsia-3-zapateo.png'],
+    imagenes: [CAT + 'china-fucsia-3-zapateo.png', CAT + 'china-fucsia-2-vuelta.png', CAT + 'china-fucsia-1-panuelo.png'],
     nuevo: true,
   },
   {
@@ -55,7 +55,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china negro con falda de flores en blanco y negro, mangas abullonadas y volante a tono. Sobrio y elegante para la fonda. Confección propia.',
-    imagenes: [CAT + 'china-negro-flores-1-panuelo.png', CAT + 'china-negro-flores-2-vuelta.png', CAT + 'china-negro-flores-3-zapateo.png'],
+    imagenes: [CAT + 'china-negro-flores-2-vuelta.png', CAT + 'china-negro-flores-1-panuelo.png', CAT + 'china-negro-flores-3-zapateo.png'],
     nuevo: true,
   },
   {
@@ -64,16 +64,16 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china rojo con falda estampada en hojas y flores sobre fondo crema, mangas abullonadas y volante rojo con cinta. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'china-roja-hojas-1-panuelo.png', CAT + 'china-roja-hojas-2-vuelta.png', CAT + 'china-roja-hojas-3-zapateo.png'],
+    imagenes: [CAT + 'china-roja-hojas-3-zapateo.png', CAT + 'china-roja-hojas-2-vuelta.png', CAT + 'china-roja-hojas-1-panuelo.png'],
     nuevo: true,
   },
   {
-    slug: 'vestido-china-copihue',
-    nombre: 'Vestido de China Copihue',
+    slug: 'vestido-china-rojo-copihue',
+    nombre: 'Vestido de China Rojo Copihue',
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china rojo con falda estampada en copihues, mangas cortas y volante con cinta blanca. Nuestra flor nacional, hecha vestido. Confección nacional.',
-    imagenes: [CAT + 'rojo-copihue-1.png', CAT + 'rojo-copihue-2-vuelo.png', CAT + 'rojo-copihue-3-relajada.png'],
+    imagenes: [CAT + 'rojo-copihue-3-relajada.png', CAT + 'rojo-copihue-2-vuelo.png', CAT + 'rojo-copihue-1.png'],
     destacado: true,
     nuevo: true,
   },
@@ -84,8 +84,8 @@ export const productos: Producto[] = [
     descripcion:
       'Traje de huasa en negro con blusa de encaje blanco, cinta roja al cuello y falda larga entallada. Ideal para la anfitriona de la fonda o el acto del colegio.',
     imagenes: [
-      CAT + 'huasa-formal-1.png',
       CAT + 'huasa-formal-2-pose.png',
+      CAT + 'huasa-formal-1.png',
       CAT + 'huasa-formal-3-costado.png',
       CAT + 'huasa-formal-4-jabot.png',
       CAT + 'huasa-formal-5-faja.png',
@@ -102,16 +102,26 @@ export const productos: Producto[] = [
     imagenes: [CAT + 'enagua-cancan-1.png'],
   },
 
-  // ───────────── Vestidos ─────────────
   {
     slug: 'vestido-blanco-negro-floral',
     nombre: 'Vestido Blanco y Negro Floral',
-    categoria: 'vestidos',
+    categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de gala en blanco y negro, cuerpo liso con escote corazón y falda de flores en volumen, terminada en volante con cinta. Ideal para fiestas y eventos especiales.',
-    imagenes: [CAT + 'blanco-negro-1.png', CAT + 'blanco-negro-2-cadera.png', CAT + 'blanco-negro-3-hombro.png'],
+    imagenes: [CAT + 'blanco-negro-2-cadera.png', CAT + 'blanco-negro-1.png', CAT + 'blanco-negro-3-hombro.png'],
     nuevo: true,
   },
+  {
+    slug: 'vestido-lila',
+    nombre: 'Vestido Lila',
+    categoria: 'fiestas-patrias',
+    descripcion:
+      'Vestido lila con falda de rosas moradas, mangas abullonadas y cinta a tono. Femenino y con mucho vuelo. Confección propia en Puerto Montt.',
+    imagenes: [CAT + 'lila-2-falda.png', CAT + 'lila-1.png', CAT + 'lila-3-giro.png'],
+    nuevo: true,
+  },
+
+  // ───────────── Vestidos ─────────────
   {
     slug: 'vestido-crema-encaje',
     nombre: 'Vestido Crema Encaje',
@@ -138,15 +148,6 @@ export const productos: Producto[] = [
     descripcion:
       'Vestido blanco con estampado geométrico en negro, mangas cortas y falda con vuelo. Un print gráfico que estiliza. Confección nacional.',
     imagenes: [CAT + 'geometrico-1-frente.png', CAT + 'geometrico-2-cintura.png', CAT + 'geometrico-3-giro.png'],
-    nuevo: true,
-  },
-  {
-    slug: 'vestido-lila',
-    nombre: 'Vestido Lila',
-    categoria: 'vestidos',
-    descripcion:
-      'Vestido lila con falda de rosas moradas, mangas abullonadas y cinta a tono. Femenino y con mucho vuelo. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'lila-1.png', CAT + 'lila-2-falda.png', CAT + 'lila-3-giro.png'],
     nuevo: true,
   },
   {
@@ -261,7 +262,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Vestido estampado en hojas rosa con chaqueta larga rosa lisa encima. Combinación suave y favorecedora. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'rosa-hojas-1-frente.png', CAT + 'rosa-hojas-2-bolsillo.png', CAT + 'rosa-hojas-3-paso.png'],
+    imagenes: [CAT + 'rosa-hojas-2-bolsillo.png', CAT + 'rosa-hojas-1-frente.png', CAT + 'rosa-hojas-3-paso.png'],
     nuevo: true,
   },
   {
@@ -282,7 +283,7 @@ export const productos: Producto[] = [
     categoria: 'abrigos',
     descripcion:
       'Abrigo entallado en jacquard damasco crema y negro, con cuello camisero, botonadura simple y bolsillos delanteros. Un clásico con textura para el día a día. Confección nacional en Puerto Montt.',
-    imagenes: [CAT + 'abrigo-damasco-1.png', CAT + 'abrigo-damasco-2-bolsillos.png', CAT + 'abrigo-damasco-3-cuello.png'],
+    imagenes: [CAT + 'abrigo-damasco-3-cuello.png', CAT + 'abrigo-damasco-1.png', CAT + 'abrigo-damasco-2-bolsillos.png'],
     destacado: true,
     nuevo: true,
   },
