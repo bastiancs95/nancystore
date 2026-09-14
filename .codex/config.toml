@@ -1,0 +1,6 @@
+# GENERADO por agente-proyectos/scripts/puente_codex.py
+# No editar aca: editar el original y correr python scripts/puente_codex.py --aplicar desde agente-proyectos
+# Se carga solo si el proyecto esta marcado como confiable en Codex.
+# Escribir queda limitado a esta carpeta; lo que salga de ahi pide aprobacion.
+sandbox_mode = "workspace-write"
+approval_policy = "on-request"
