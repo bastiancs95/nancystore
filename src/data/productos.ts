@@ -11,7 +11,7 @@ export interface Producto {
   nombre: string;
   categoria: Categoria;
   descripcion: string;
-  imagenes: string[]; // rutas relativas a public, sin slash inicial
+  imagenes: string[]; // rutas relativas a public, sin slash inicial. Nombre: <slug>-<n>-<angulo>.webp (ver docs/convenciones.md)
   tallas?: string[];
   destacado?: boolean;
   nuevo?: boolean;
@@ -26,7 +26,7 @@ export const categorias: { id: Categoria; label: string }[] = [
   { id: 'fiestas-patrias', label: 'Fiestas Patrias' },
 ];
 
-const CAT = 'images/productos/catalogo-2026/';
+const CAT = 'images/productos/';
 
 export const productos: Producto[] = [
   // ───────────── Fiestas Patrias 2026 — Vestidos de huasa ─────────────
@@ -37,11 +37,11 @@ export const productos: Producto[] = [
     descripcion:
       'Traje de huasa en negro con blusa de encaje blanco, cinta roja al cuello y falda larga entallada. Ideal para la anfitriona de la fonda o el acto del colegio.',
     imagenes: [
-      CAT + 'huasa-formal-2-pose.png',
-      CAT + 'huasa-formal-1.png',
-      CAT + 'huasa-formal-3-costado.png',
-      CAT + 'huasa-formal-4-jabot.png',
-      CAT + 'huasa-formal-5-faja.png',
+      CAT + 'tenida-huasa-elegante-1-tres-cuartos.webp',
+      CAT + 'tenida-huasa-elegante-2-frente.webp',
+      CAT + 'tenida-huasa-elegante-3-costado.webp',
+      CAT + 'tenida-huasa-elegante-4-jabot.webp',
+      CAT + 'tenida-huasa-elegante-5-faja.webp',
     ],
     destacado: true,
     nuevo: true,
@@ -52,7 +52,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china rojo con falda estampada en hojas y flores sobre fondo crema, mangas abullonadas y volante rojo con cinta. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'china-roja-hojas-3-zapateo.png', CAT + 'china-roja-hojas-2-vuelta.png', CAT + 'china-roja-hojas-1-panuelo.png'],
+    imagenes: [CAT + 'vestido-china-rojo-hojas-1-zapateo.webp', CAT + 'vestido-china-rojo-hojas-2-vuelta.webp', CAT + 'vestido-china-rojo-hojas-3-panuelo.webp'],
     nuevo: true,
   },
   {
@@ -61,7 +61,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china negro con falda de flores en blanco y negro, mangas abullonadas y volante a tono. Sobrio y elegante para la fonda. Confección propia.',
-    imagenes: [CAT + 'china-negro-flores-2-vuelta.png', CAT + 'china-negro-flores-1-panuelo.png', CAT + 'china-negro-flores-3-zapateo.png'],
+    imagenes: [CAT + 'vestido-china-negro-flores-1-vuelta.webp', CAT + 'vestido-china-negro-flores-2-panuelo.webp', CAT + 'vestido-china-negro-flores-3-zapateo.webp'],
     nuevo: true,
   },
   {
@@ -70,7 +70,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china azul rey con mangas abullonadas y falda de rosas azules sobre fondo blanco, rematado en volante azul con cinta. Confección propia en nuestro taller de Puerto Montt.',
-    imagenes: [CAT + 'china-azul-rey-1-panuelo.png', CAT + 'china-azul-rey-2-vuelta.png', CAT + 'china-azul-rey-3-zapateo.png'],
+    imagenes: [CAT + 'vestido-china-azul-rey-1-panuelo.webp', CAT + 'vestido-china-azul-rey-2-vuelta.webp', CAT + 'vestido-china-azul-rey-3-zapateo.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -80,7 +80,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido lila con falda de rosas moradas, mangas abullonadas y cinta a tono. Femenino y con mucho vuelo. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'lila-2-falda.png', CAT + 'lila-1.png', CAT + 'lila-3-giro.png'],
+    imagenes: [CAT + 'vestido-lila-1-falda.webp', CAT + 'vestido-lila-2-frente.webp', CAT + 'vestido-lila-3-giro.webp'],
     nuevo: true,
   },
   {
@@ -89,7 +89,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china en fucsia con falda de rosas sobre fondo blanco y mangas abullonadas a juego. Un color que destaca bailando cueca. Confección nacional.',
-    imagenes: [CAT + 'china-fucsia-3-zapateo.png', CAT + 'china-fucsia-2-vuelta.png', CAT + 'china-fucsia-1-panuelo.png'],
+    imagenes: [CAT + 'vestido-china-fucsia-1-zapateo.webp', CAT + 'vestido-china-fucsia-2-vuelta.webp', CAT + 'vestido-china-fucsia-3-panuelo.webp'],
     nuevo: true,
   },
   {
@@ -98,7 +98,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de china rojo con falda estampada en copihues, mangas cortas y volante con cinta blanca. Nuestra flor nacional, hecha vestido. Confección nacional.',
-    imagenes: [CAT + 'rojo-copihue-3-relajada.png', CAT + 'rojo-copihue-2-vuelo.png', CAT + 'rojo-copihue-1.png'],
+    imagenes: [CAT + 'vestido-china-rojo-copihue-1-relajada.webp', CAT + 'vestido-china-rojo-copihue-2-vuelo.webp', CAT + 'vestido-china-rojo-copihue-3-frente.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -108,7 +108,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Vestido de gala en blanco y negro, cuerpo liso con escote corazón y falda de flores en volumen, terminada en volante con cinta. Ideal para fiestas y eventos especiales.',
-    imagenes: [CAT + 'blanco-negro-2-cadera.png', CAT + 'blanco-negro-1.png', CAT + 'blanco-negro-3-hombro.png'],
+    imagenes: [CAT + 'vestido-blanco-negro-floral-1-cadera.webp', CAT + 'vestido-blanco-negro-floral-2-frente.webp', CAT + 'vestido-blanco-negro-floral-3-hombro.webp'],
     nuevo: true,
   },
   {
@@ -117,7 +117,7 @@ export const productos: Producto[] = [
     categoria: 'fiestas-patrias',
     descripcion:
       'Enagua de tul con tres vuelos y cinta de raso, para dar volumen a tu vestido de china. Complemento ideal para tu traje de huasa.',
-    imagenes: [CAT + 'enagua-cancan-1.png'],
+    imagenes: [CAT + 'enagua-can-can-1-frente.webp'],
   },
 
   // ───────────── Vestidos ─────────────
@@ -127,7 +127,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido crema con mangas de encaje bordado y cinturón con brillos en la cintura, falda con vuelo. Elegante para eventos de día y de noche.',
-    imagenes: [CAT + 'crema-encaje-1-frente.png', CAT + 'crema-encaje-2-cintura.png', CAT + 'crema-encaje-3-giro.png'],
+    imagenes: [CAT + 'vestido-crema-encaje-1-frente.webp', CAT + 'vestido-crema-encaje-2-cintura.webp', CAT + 'vestido-crema-encaje-3-giro.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -137,7 +137,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido negro con print de hojas y flores en crema, mangas cortas y falda con vuelo. Cómodo y femenino para el día a día. Confección nacional.',
-    imagenes: [CAT + 'flores-jumper-1-frente.png', CAT + 'flores-jumper-2-cadera.png', CAT + 'flores-jumper-3-giro.png'],
+    imagenes: [CAT + 'vestido-negro-flores-1-frente.webp', CAT + 'vestido-negro-flores-2-cadera.webp', CAT + 'vestido-negro-flores-3-giro.webp'],
     nuevo: true,
   },
   {
@@ -146,7 +146,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido blanco con estampado geométrico en negro, mangas cortas y falda con vuelo. Un print gráfico que estiliza. Confección nacional.',
-    imagenes: [CAT + 'geometrico-1-frente.png', CAT + 'geometrico-2-cintura.png', CAT + 'geometrico-3-giro.png'],
+    imagenes: [CAT + 'vestido-geometrico-1-frente.webp', CAT + 'vestido-geometrico-2-cintura.webp', CAT + 'vestido-geometrico-3-giro.webp'],
     nuevo: true,
   },
   {
@@ -155,7 +155,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido negro con bordado floral en hilo dorado, mangas cortas y falda con vuelo. Elegante para ocasiones especiales. Confección nacional.',
-    imagenes: [CAT + 'negro-encaje-1-frente.png', CAT + 'negro-encaje-2-cadera.png', CAT + 'negro-encaje-3-paso.png'],
+    imagenes: [CAT + 'vestido-negro-bordado-1-frente.webp', CAT + 'vestido-negro-bordado-2-cadera.webp', CAT + 'vestido-negro-bordado-3-paso.webp'],
     nuevo: true,
   },
   {
@@ -164,7 +164,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido rosa con print de hojas, sin mangas y corte recto. Liviano y fácil de combinar. Confección nacional en Puerto Montt.',
-    imagenes: [CAT + 'rosa-hojas-jumper-1-frente.png', CAT + 'rosa-hojas-jumper-2-cadera.png', CAT + 'rosa-hojas-jumper-3-giro.png'],
+    imagenes: [CAT + 'vestido-hojas-rosa-1-frente.webp', CAT + 'vestido-hojas-rosa-2-cadera.webp', CAT + 'vestido-hojas-rosa-3-giro.webp'],
     nuevo: true,
   },
   {
@@ -173,7 +173,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido tejido verde jaspeado, cuello en V y mangas largas, corte suelto. Abriga con estilo los días fríos del sur.',
-    imagenes: [CAT + 'verde-punto-1-brazo.png', CAT + 'verde-punto-2-paso.png', CAT + 'verde-punto-3-manga.png'],
+    imagenes: [CAT + 'vestido-verde-punto-1-brazo.webp', CAT + 'vestido-verde-punto-2-paso.webp', CAT + 'vestido-verde-punto-3-manga.webp'],
     nuevo: true,
   },
   {
@@ -182,7 +182,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido negro con bordado de flores y destellos dorados, ideal para fiestas de fin de año. Confección nacional en Puerto Montt.',
-    imagenes: [CAT + 'vestido-dorado-1.png', CAT + 'vestido-dorado-2-perfil.png', CAT + 'vestido-dorado-3-cadera.png'],
+    imagenes: [CAT + 'vestido-negro-dorado-1-chaqueta-abierta.webp', CAT + 'vestido-negro-dorado-2-perfil.webp', CAT + 'vestido-negro-dorado-3-cadera.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -192,7 +192,7 @@ export const productos: Producto[] = [
     categoria: 'vestidos',
     descripcion:
       'Vestido negro sin mangas, corte recto y escote redondo. El básico que nunca falta en el clóset, fácil de combinar. Confección nacional.',
-    imagenes: [CAT + 'negro-jumper-1-frente.png', CAT + 'negro-jumper-2-cadera.png', CAT + 'negro-jumper-3-giro.png'],
+    imagenes: [CAT + 'vestido-negro-basico-1-frente.webp', CAT + 'vestido-negro-basico-2-cadera.webp', CAT + 'vestido-negro-basico-3-giro.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -204,7 +204,7 @@ export const productos: Producto[] = [
     categoria: 'blazer',
     descripcion:
       'Blazer corto en crema, sin solapa, para lucir sobre un vestido o un pantalón de vestir. Un básico elegante que combina con todo. Confección nacional.',
-    imagenes: [CAT + 'crema-blazer-1-frente.png', CAT + 'crema-blazer-2-cadera.png', CAT + 'crema-blazer-3-paso.png'],
+    imagenes: [CAT + 'blazer-crema-1-frente.webp', CAT + 'blazer-crema-2-cadera.webp', CAT + 'blazer-crema-3-paso.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -214,7 +214,7 @@ export const productos: Producto[] = [
     categoria: 'blazer',
     descripcion:
       'Blazer negro corto, sin solapa, ideal para dar un toque formal sobre cualquier vestido. Confección nacional en Puerto Montt.',
-    imagenes: [CAT + 'geometrico-blazer-1-frente.png', CAT + 'geometrico-blazer-2-cadera.png', CAT + 'geometrico-blazer-3-paso.png'],
+    imagenes: [CAT + 'blazer-negro-corto-1-frente.webp', CAT + 'blazer-negro-corto-2-cadera.webp', CAT + 'blazer-negro-corto-3-paso.webp'],
     nuevo: true,
   },
 
@@ -225,7 +225,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Blusa blanca clásica de manga larga con pantalón negro de vestir, corte recto. El básico infalible para la oficina. Confección nacional.',
-    imagenes: [CAT + 'blusa-1-puno.png', CAT + 'blusa-2-cadera.png', CAT + 'blusa-3-perfil.png'],
+    imagenes: [CAT + 'conjunto-blusa-blanca-pantalon-negro-1-puno.webp', CAT + 'conjunto-blusa-blanca-pantalon-negro-2-cadera.webp', CAT + 'conjunto-blusa-blanca-pantalon-negro-3-perfil.webp'],
     nuevo: true,
   },
   {
@@ -234,7 +234,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Vestido negro floral con blazer blanco corto encima. Combinación fresca para la oficina o una salida de tarde. Confección propia.',
-    imagenes: [CAT + 'jumper-flores-blanco-1-frente.png', CAT + 'jumper-flores-blanco-2-cadera.png', CAT + 'jumper-flores-blanco-3-paso.png'],
+    imagenes: [CAT + 'conjunto-floral-blazer-blanco-1-frente.webp', CAT + 'conjunto-floral-blazer-blanco-2-cadera.webp', CAT + 'conjunto-floral-blazer-blanco-3-paso.webp'],
     nuevo: true,
   },
   {
@@ -243,7 +243,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Vestido negro floral con blazer negro corto encima. Un look monocromático con textura y personalidad. Confección nacional.',
-    imagenes: [CAT + 'jumper-flores-negro-1-frente.png', CAT + 'jumper-flores-negro-2-cadera.png', CAT + 'jumper-flores-negro-3-paso.png'],
+    imagenes: [CAT + 'conjunto-floral-blazer-negro-1-frente.webp', CAT + 'conjunto-floral-blazer-negro-2-cadera.webp', CAT + 'conjunto-floral-blazer-negro-3-paso.webp'],
     nuevo: true,
   },
   {
@@ -252,7 +252,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Vestido turquesa liso con chaqueta larga de encaje negro y puños lisos. Un total look elegante para la noche. Confección nacional.',
-    imagenes: [CAT + 'turquesa-1-relajada.png', CAT + 'turquesa-2-manga.png', CAT + 'turquesa-3-canto.png'],
+    imagenes: [CAT + 'conjunto-turquesa-chaqueta-larga-1-relajada.webp', CAT + 'conjunto-turquesa-chaqueta-larga-2-manga.webp', CAT + 'conjunto-turquesa-chaqueta-larga-3-canto.webp'],
     nuevo: true,
   },
   {
@@ -261,7 +261,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Vestido estampado en hojas rosa con chaqueta larga rosa lisa encima. Combinación suave y favorecedora. Confección propia en Puerto Montt.',
-    imagenes: [CAT + 'rosa-hojas-2-bolsillo.png', CAT + 'rosa-hojas-1-frente.png', CAT + 'rosa-hojas-3-paso.png'],
+    imagenes: [CAT + 'conjunto-hojas-chaqueta-rosa-1-bolsillo.webp', CAT + 'conjunto-hojas-chaqueta-rosa-2-frente.webp', CAT + 'conjunto-hojas-chaqueta-rosa-3-paso.webp'],
     nuevo: true,
   },
   {
@@ -270,7 +270,7 @@ export const productos: Producto[] = [
     categoria: 'conjuntos',
     descripcion:
       'Blazer negro entallado con pantalón a juego y blusa blanca. El traje formal para la oficina o una entrevista. Confección propia.',
-    imagenes: [CAT + 'traje-1-bolsillo.png', CAT + 'traje-2-boton.png', CAT + 'traje-3-tresCuartos.png'],
+    imagenes: [CAT + 'conjunto-traje-negro-1-bolsillo.webp', CAT + 'conjunto-traje-negro-2-boton.webp', CAT + 'conjunto-traje-negro-3-tres-cuartos.webp'],
     destacado: true,
     nuevo: true,
   },
@@ -282,7 +282,7 @@ export const productos: Producto[] = [
     categoria: 'abrigos',
     descripcion:
       'Abrigo entallado en jacquard damasco crema y negro, con cuello camisero, botonadura simple y bolsillos delanteros. Un clásico con textura para el día a día. Confección nacional en Puerto Montt.',
-    imagenes: [CAT + 'abrigo-damasco-3-cuello.png', CAT + 'abrigo-damasco-1.png', CAT + 'abrigo-damasco-2-bolsillos.png'],
+    imagenes: [CAT + 'abrigo-jacquard-damasco-1-cuello.webp', CAT + 'abrigo-jacquard-damasco-2-frente.webp', CAT + 'abrigo-jacquard-damasco-3-bolsillo.webp'],
     destacado: true,
     nuevo: true,
   },

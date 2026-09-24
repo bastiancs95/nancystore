@@ -26,7 +26,7 @@ const relacionados = productosPorCategoria(producto.categoria)
   .slice(0, 3);
 ---
 
-<BaseLayout title={producto.nombre} description={producto.descripcion} image={base + producto.imagenes[0]}>
+<BaseLayout title={producto.nombre} description={producto.descripcion} image={base + 'images/og/' + producto.slug + '.jpg'}>
   <section class="max-w-6xl mx-auto px-6 py-16 md:py-24">
     <a href={`${base}catalogo`} class="text-sm text-[var(--color-gray)] hover:text-[var(--color-burgundy)] transition-colors">
       ← Volver al catálogo
