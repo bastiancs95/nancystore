@@ -1,3 +1,5 @@
+> ARCHIVADO (campaña Fiestas Patrias terminada, 18-sep-2026). Se conserva como referencia para la próxima temporada.
+
 # Briefs de creatividades — Fiestas Patrias 2026
 
 > Para ejecutar en Canva. Respetar sistema de diseño: burdeo `#7B2D3E`, crema

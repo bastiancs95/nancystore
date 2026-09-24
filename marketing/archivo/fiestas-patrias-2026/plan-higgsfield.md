@@ -1,3 +1,5 @@
+> ARCHIVADO (campaña Fiestas Patrias terminada, 18-sep-2026). Se conserva como referencia para la próxima temporada.
+
 # Plan — Higgsfield integrado a la campaña de Fiestas Patrias 2026
 
 ## Contexto

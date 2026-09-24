@@ -1,3 +1,5 @@
+> ARCHIVADO (campaña Fiestas Patrias terminada, 18-sep-2026). Se conserva como referencia para la próxima temporada.
+
 # Hoja de generación — Higgsfield · Fiestas Patrias 2026
 
 > **Presupuesto: 110 créditos.** Modelo `wan2_7` (o `Wan 2.7` en la web), 720p, aspecto 3:4.

@@ -1,3 +1,5 @@
+> ARCHIVADO (campaña Fiestas Patrias terminada, 18-sep-2026). Se conserva como referencia para la próxima temporada.
+
 # Calendario de contenido — sprint 30-ago → 18-sept 2026
 
 > **Cómo se publica:** todo desde Meta Business Suite (`business.facebook.com`) →

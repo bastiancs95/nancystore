@@ -1,3 +1,5 @@
+> ARCHIVADO (campaña Fiestas Patrias terminada, 18-sep-2026). Se conserva como referencia para la próxima temporada.
+
 # Diseño de contenido — Catálogo Fiestas Patrias 2026
 
 > Definido el 23-ago-2026 con Bastian, **antes** de generar nada. Este documento manda sobre
