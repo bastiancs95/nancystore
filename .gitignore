@@ -25,3 +25,24 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# graphify output (regenerable, contiene rutas absolutas de la maquina)
+graphify-out/
+
+# permisos locales de Claude Code (rutas especificas de esta maquina)
+.claude/settings.local.json
+
+# media pesada de trabajo (fotos fuente, generaciones IA, PNG maestros)
+# no tiene respaldo: no correr `git clean -x` / `-X` en este repo
+/media/*
+!/media/README.md
+!/media/renombres.tsv
+
+# otras variables de entorno
+.env.*
+!.env.example
+
+# basura de SO
+Thumbs.db
+desktop.ini
+*.log
