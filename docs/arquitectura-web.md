@@ -1,356 +1,102 @@
-# Nancy — Arquitectura del Sitio Web
-
-Documento de referencia para Claude Code. Úsalo como contexto inicial antes de escribir cualquier código.
-
----
-
-## Stack técnico
-
-- **Astro 4.x** — generador de sitios estáticos
-- **Tailwind CSS** — estilos
-- **TypeScript** — tipado básico (sin sobreingeniería)
-- **Astro Content Collections** — gestión de productos como archivos de datos locales
-- **GitHub Pages** — hosting gratuito (output estático)
-
-Sin base de datos. Sin backend. Sin pasarela de pagos. Todo estático.
-
----
-
-## Setup inicial (comandos)
-
-```bash
-# En C:\Users\basti\Proyectos\
-npm create astro@latest nancy-website
-# Elegir: Empty template, TypeScript: strict, no Git (lo inicializamos después)
-
-cd nancy-website
-npx astro add tailwind
-npx astro add @astrojs/sitemap
-
-# Fuentes de Google (local via fontsource)
-npm install @fontsource/cormorant-garamond @fontsource/inter
-
-# Dev
-npm run dev
-```
-
----
-
-## Estructura de archivos
-
-```
-nancy-website/
-├── public/
-│   ├── images/
-│   │   ├── productos/        ← fotos de cada prenda
-│   │   └── marca/            ← logo, fotos de taller, Nancy
-│   └── favicon.svg
-├── src/
-│   ├── content/
-│   │   ├── config.ts         ← schema de colecciones
-│   │   └── productos/        ← un .json por producto
-│   ├── components/
-│   │   ├── Header.astro
-│   │   ├── Footer.astro
-│   │   ├── ProductCard.astro
-│   │   ├── ProductGrid.astro
-│   │   ├── CategoryFilter.astro
-│   │   ├── HeroSection.astro
-│   │   ├── StorySection.astro
-│   │   └── WhatsAppCTA.astro  ← botón flotante
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── pages/
-│   │   ├── index.astro        ← Home
-│   │   ├── nosotras.astro     ← Historia de Nancy
-│   │   ├── catalogo/
-│   │   │   ├── index.astro    ← Catálogo completo
-│   │   │   └── [slug].astro   ← Página de producto individual
-│   │   └── contacto.astro
-│   └── styles/
-│       └── global.css
-├── astro.config.mjs
-├── tailwind.config.mjs
-├── tsconfig.json
-└── CLAUDE.md
-```
-
----
-
-## Sistema de diseño
-
-### Paleta de colores
-
-```css
-/* src/styles/global.css */
-:root {
-  --color-cream:    #F7F3EE;   /* fondo principal */
-  --color-white:    #FFFFFF;   /* fondos de tarjetas */
-  --color-black:    #1A1A1A;   /* texto principal */
-  --color-gray:     #6B6B6B;   /* texto secundario, labels */
-  --color-gray-lt:  #E8E4DF;   /* bordes, separadores */
-  --color-burgundy: #7B2D3E;   /* acento principal, CTAs, links */
-  --color-burgundy-hover: #5E2030;
-}
-```
-
-```js
-// tailwind.config.mjs
-colors: {
-  cream:    '#F7F3EE',
-  'off-white': '#FFFFFF',
-  ink:      '#1A1A1A',
-  gray:     '#6B6B6B',
-  'gray-lt':'#E8E4DF',
-  burgundy: '#7B2D3E',
-  'burgundy-dark': '#5E2030',
-}
-```
-
-### Tipografía
-
-```css
-/* Heading / nombre de marca: Cormorant Garamond */
-/* Body / navegación / labels: Inter */
-
-@import '@fontsource/cormorant-garamond/400.css';
-@import '@fontsource/cormorant-garamond/500.css';
-@import '@fontsource/cormorant-garamond/600.css';
-@import '@fontsource/inter/400.css';
-@import '@fontsource/inter/500.css';
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--color-cream);
-  color: var(--color-black);
-}
-
-h1, h2, h3, .brand {
-  font-family: 'Cormorant Garamond', serif;
-}
-```
-
-Escalas de texto en Tailwind:
-- Logo/marca: `text-3xl font-semibold tracking-wide` (Cormorant)
-- H1 de página: `text-5xl md:text-7xl font-medium` (Cormorant)
-- H2 de sección: `text-3xl md:text-4xl font-medium` (Cormorant)
-- Body: `text-base leading-relaxed` (Inter)
-- Labels/precio/categoría: `text-sm tracking-widest uppercase` (Inter)
-
-### Espaciado y estilo general
-
-- Máximo ancho de contenido: `max-w-6xl mx-auto px-6`
-- Mucho espacio en blanco. Secciones con `py-20 md:py-32`
-- Sin sombras fuertes. Bordes sutiles `border border-gray-lt`
-- Bordes redondeados mínimos: `rounded-sm` o sin redondear
-- Botón primario: fondo burgundy, texto blanco, sin borde, hover a burgundy-dark
-- Botón secundario: sin fondo, borde burgundy, texto burgundy
-
----
-
-## Páginas
-
-### `/` — Home
-
-Secciones en orden:
-1. **Hero** — Imagen de fondo (prenda destacada o taller), título grande "Hecho para ti", subtítulo corto, dos CTAs: "Ver catálogo" y botón WhatsApp
-2. **Productos destacados** — Grid 2×2 de prendas con `destacado: true` en su JSON
-3. **Historia en 3 líneas** — Texto corto + foto del taller o de Nancy, link a `/nosotras`
-4. **Categorías** — 6 íconos/imágenes de categoría con link a catálogo filtrado
-5. **CTA final** — Banda en burgundy: "¿Tienes dudas sobre tallas? Escríbenos" + botón WhatsApp
-
-### `/nosotras`
-
-1. **Foto de Nancy o del taller** — imagen grande, atmosférica
-2. **Historia** — 3-4 párrafos. Quiénes son. El padre que confecciona. Puerto Montt. Por qué hacen lo que hacen. Tono cercano, no corporativo.
-3. **Valores en 3 columnas** — Confección propia / Atención personalizada / Ropa para cuerpos reales
-4. **Proceso** — 3 pasos visuales: Diseño → Confección → Entrega. Fotos del proceso si hay.
-5. **CTA** — "Conoce nuestra colección actual"
-
-### `/catalogo`
-
-1. **Header de página** — Título "Colección" + cantidad de prendas disponibles
-2. **Filtros por categoría** — Pills/chips: Todos / Blazers / Blusas / Vestidos / Jumpers / Pantalones / Poleras
-3. **Grid de productos** — 2 columnas mobile, 3 columnas desktop. `ProductCard` por prenda.
-4. **Sin paginación inicial** — mostrar todo (catálogo pequeño al inicio)
-
-`ProductCard` muestra: foto, nombre, precio en CLP formateado (`$45.000`), categoría label, badges si aplica (Nuevo, Pocas unidades). Al hacer click va a `/catalogo/[slug]`.
-
-### `/catalogo/[slug]`
-
-1. **Galería** — imagen principal grande + miniaturas laterales (o swipe en mobile)
-2. **Info de producto** — nombre (Cormorant, grande), precio, descripción, tallas disponibles como selector
-3. **CTA principal** — botón "Consultar por WhatsApp" que abre wa.me con mensaje prellenado: `Hola Nancy, me interesa el [nombre del producto], talla [X]`
-4. **Detalles** — Material, cuidados, tiempo de confección si aplica
-5. **Otros productos** — 3 productos de la misma categoría abajo
-
-### `/contacto`
-
-1. **Mapa o dirección** — dirección del local en Puerto Montt (texto o embed Google Maps)
-2. **Medios de contacto** — WhatsApp (número), Instagram (@handle), horarios del local
-3. **Formulario simple** — nombre, email, mensaje (sin backend; usar Formspree o similar para recibir mails gratis)
-
----
-
-## Datos de productos
-
-### Schema (`src/content/config.ts`)
-
-```typescript
-import { defineCollection, z } from 'astro:content';
-
-const productos = defineCollection({
-  type: 'data',
-  schema: z.object({
-    nombre:      z.string(),
-    slug:        z.string(),
-    categoria:   z.enum(['blazers','blusas','jumpers','vestidos','poleras','pantalones']),
-    precio:      z.number(),           // en CLP, ej: 45000
-    descripcion: z.string(),
-    tallas:      z.array(z.string()),  // ["S","M","L","XL"]
-    imagenes:    z.array(z.string()),  // rutas relativas a public/images/productos/
-    disponible:  z.boolean().default(true),
-    destacado:   z.boolean().default(false),
-    material:    z.string().optional(),
-    cuidados:    z.string().optional(),
-    nuevo:       z.boolean().default(false),
-  }),
-});
-
-export const collections = { productos };
-```
-
-### Ejemplo de producto (`src/content/productos/blazer-clasico.json`)
-
-```json
-{
-  "nombre": "Blazer Clásico Negro",
-  "slug": "blazer-clasico-negro",
-  "categoria": "blazers",
-  "precio": 48000,
-  "descripcion": "Blazer estructurado de confección nacional. Corte recto, manga larga, botonadura simple. Ideal para entornos formales y semi-formales.",
-  "tallas": ["S", "M", "L", "XL", "2XL"],
-  "imagenes": ["blazer-clasico-negro-1.jpg", "blazer-clasico-negro-2.jpg"],
-  "disponible": true,
-  "destacado": true,
-  "material": "Gabardina nacional",
-  "cuidados": "Lavar a mano en frío, no centrifugar",
-  "nuevo": false
-}
-```
-
----
-
-## Componente WhatsApp CTA
-
-Botón flotante en esquina inferior derecha en todas las páginas. Número configurable en una constante.
-
-```astro
-<!-- src/components/WhatsAppCTA.astro -->
----
-const WHATSAPP_NUMBER = '56912345678'; // reemplazar con número real
-const DEFAULT_MSG = encodeURIComponent('Hola Nancy, me gustaría consultar sobre sus prendas');
-const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${DEFAULT_MSG}`;
----
-<a href={href} target="_blank" rel="noopener"
-   class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white rounded-full p-4 shadow-lg hover:bg-[#1ebe5d] transition-colors">
-  <!-- ícono WhatsApp SVG inline -->
-</a>
-```
-
----
-
-## Mensaje de WhatsApp por producto
-
-En `/catalogo/[slug]`, el botón genera un link así:
-
-```typescript
-const msg = encodeURIComponent(
-  `Hola Nancy, me interesa el producto "${producto.nombre}". ¿Está disponible en talla ${tallaSel}?`
-);
-const waLink = `https://wa.me/56912345678?text=${msg}`;
-```
-
----
-
-## Navegación (Header)
-
-- Logo "Nancy" (Cormorant Garamond, texto, link a `/`)
-- Links: Nosotras · Catálogo · Contacto
-- Ícono Instagram (svg inline, link externo)
-- En mobile: hamburger menu (sin JS externo, toggle con checkbox CSS o Alpine.js mínimo)
-
-Fondo: `--color-cream` (no blanco). Sticky en desktop.
-
----
-
-## SEO básico (BaseLayout.astro)
-
-```astro
----
-interface Props {
-  title: string;
-  description: string;
-  image?: string;
-}
-const { title, description, image = '/images/marca/og-default.jpg' } = Astro.props;
-const canonical = new URL(Astro.url.pathname, Astro.site);
----
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <title>{title} | Nancy</title>
-  <meta name="description" content={description} />
-  <link rel="canonical" href={canonical} />
-  <meta property="og:title" content={`${title} | Nancy`} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
-  <meta property="og:locale" content="es_CL" />
-</head>
-```
-
----
-
-## Deployment en GitHub Pages
-
-```js
-// astro.config.mjs
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import sitemap from '@astrojs/sitemap';
-
-export default defineConfig({
-  site: 'https://[usuario].github.io',  // o dominio propio después
-  base: '/nancy-website',               // si se usa subpath; dejar vacío con dominio propio
-  integrations: [tailwind(), sitemap()],
-  output: 'static',
-});
-```
-
-GitHub Actions para auto-deploy en cada push a `main`:
-- Usar el workflow oficial de Astro: https://docs.astro.build/en/guides/deploy/github/
-
----
-
-## Orden de implementación recomendado
-
-1. Setup del proyecto + sistema de diseño (variables CSS, fuentes, Tailwind config)
-2. `BaseLayout.astro` + `Header.astro` + `Footer.astro` + `WhatsAppCTA.astro`
-3. Content collection schema + 3-4 productos de ejemplo en JSON
-4. `/catalogo` con `ProductCard` y `ProductGrid`
-5. `/catalogo/[slug]` página de producto
-6. `/` Home con hero y productos destacados
-7. `/nosotras`
-8. `/contacto`
-9. Deploy a GitHub Pages
-
----
-
-## Notas de tono visual
-
-- Fondo general: crema (`#F7F3EE`), nunca blanco puro
-- Textos: negro profundo (`#1A1A1A`), nunca negro puro `#000`
-- Mucho espacio en blanco. Priorizar respiración sobre información densa.
-- Imágenes: preferir fotos con fondos neutros (paredes beige/blancas, luz natural)
-- No usar sombras fuertes. El depth lo da el espacio y el contraste tipográfico.
-- El acento burgundy (`#7B2D3E`) se usa solo en CTAs, links activos, y detalles de énfasis. No decorativo.
+# Arquitectura del sitio
+
+Astro 6 estático. Sin backend, sin base de datos, sin carrito. Cada página se genera
+en build time; el único JavaScript en el navegador es para la galería de fotos, la
+lista de deseos (localStorage) y el menú móvil.
+
+## Configuración
+
+`astro.config.mjs`: `site: 'https://www.confeccionesnancy.cl'`, `base: '/'`,
+`output: 'static'`, Tailwind 4 como plugin de Vite, `@astrojs/sitemap`.
+
+No hay `tailwind.config.*`: los tokens de diseño (colores, tipografías) están en
+`src/styles/global.css`, en un bloque `@theme` de Tailwind 4.
+
+## Datos: `src/data/`
+
+- **`productos.ts`** — el catálogo completo, 26 productos en un array `Producto[]`:
+  ```ts
+  interface Producto {
+    slug: string;           // inmutable: URL, sitemap, localStorage de la lista de deseos
+    nombre: string;
+    categoria: Categoria;   // 'vestidos' | 'conjuntos' | 'blazer' | 'abrigos' | 'pantalones' | 'fiestas-patrias'
+    descripcion: string;
+    imagenes: string[];     // CAT + '<slug>-<n>-<angulo>.webp', en orden de muestra
+    tallas?: string[];
+    destacado?: boolean;    // aparece en la home
+    nuevo?: boolean;
+  }
+  ```
+  `imagenes[0]` es la foto de tarjeta (`ProductCard`) y también da nombre al archivo
+  de `og:image` (`images/og/<slug>.jpg`, generado aparte — ver `docs/convenciones.md`).
+  `productosDestacados` y `productosPorCategoria()` son los únicos derivados.
+
+- **`site.ts`** — `WHATSAPP_PRINCIPAL` y `WHATSAPP_NUMEROS` (alternativos, sin usar hoy
+  en el sitio) y `waLink(mensaje, numero?)`, que arma la URL `wa.me/...?text=...`.
+
+## Páginas (`src/pages/`)
+
+| Ruta | Archivo | Qué hace |
+|---|---|---|
+| `/` | `index.astro` | Hero, banner de Fiestas Patrias, 6 productos `destacado: true` |
+| `/catalogo` | `catalogo/index.astro` | Los 26 productos, con `CategoryFilter` |
+| `/catalogo/<slug>` | `catalogo/[slug].astro` | `getStaticPaths()` genera una ruta por producto. Galería, tallas, WhatsApp, hasta 3 productos relacionados (misma categoría) |
+| `/fiestas-patrias` | `fiestas-patrias.astro` | Los productos de categoría `fiestas-patrias` |
+| `/nosotras` | `nosotras.astro` | Quiénes son |
+| `/contacto` | `contacto.astro` | Datos de contacto |
+| `/lista-deseos` | `lista-deseos.astro` | Renderiza los 26 `ProductCard` ocultos (`hidden`) y muestra solo los guardados en `localStorage`, vía JS en el cliente |
+| `/wsp` | `wsp.astro` | Redirección directa a WhatsApp (`noindex`, no debería estar en el sitemap) |
+
+## Componentes (`src/components/`)
+
+- **`ProductCard`** — imagen (`imagenes[0]`), nombre, categoría; enlaza a `/catalogo/<slug>`.
+- **`ProductGallery`** — con 1 foto, `<img>` simple. Con varias: miniaturas a la
+  izquierda (todas `loading="lazy"`) + diapositivas apiladas en `absolute inset-0`
+  con opacidad, controladas por un `<script>` en el cliente (flechas, swipe táctil,
+  teclado). **Las diapositivas ocultas están dentro del viewport**, así que el
+  navegador las descarga igual — el `loading="lazy"` de la 2ª en adelante no difiere
+  nada en la práctica.
+- **`ProductGrid` / `CategoryFilter`** — grilla de tarjetas y filtro por categoría.
+- **`WishlistButton`** — botón de corazón; usa `data-wishlist-toggle` + `src/scripts/wishlist.ts`.
+- **`WhatsAppCTA`** — botón flotante, en todas las páginas vía `BaseLayout`.
+- **`Header` / `Footer`** — nav, logo, contador de la lista de deseos.
+
+## Lista de deseos (`src/scripts/wishlist.ts`)
+
+Sin backend ni cuenta de usuario: la lista es un array de **slugs** en
+`localStorage['nancy:lista-deseos']`. `toggle(slug)` la actualiza y dispara un
+`CustomEvent('lista:cambio')`; `sincronizar()` (llamada desde `Header`) actualiza el
+contador y el estado de los botones; `/lista-deseos` escucha `'lista:render'` para
+mostrar/ocultar cada tarjeta y arma un mensaje de WhatsApp con los nombres guardados.
+**Renombrar o mover imágenes nunca rompe la lista de deseos**, porque solo guarda slugs.
+
+## SEO y `og:image` (`BaseLayout.astro`)
+
+- `canonical` y `og:url`: `new URL(Astro.url.pathname, Astro.site)`.
+- `og:image`: cada página pasa una ruta relativa a `public/` como prop `image`;
+  `BaseLayout` la vuelve absoluta con `new URL(image, Astro.site)`. Por defecto es
+  `/images/marca/monograma-fondo-burdeo.png`; cada producto usa su propio
+  `/images/og/<slug>.jpg` (1200×630, generado por `npm run imagenes`, no por Astro).
+- `favicon.svg` (la "N"), con `favicon.ico` de respaldo para navegadores que no leen SVG.
+
+## Imágenes: pipeline y por qué no usa `astro:assets`
+
+Todo son `<img>` directos a `public/` — no hay `src/assets/` ni `<Image>` de Astro
+(`astro:assets` exige mover los archivos a `src/` e importarlos, lo que no encaja con
+un catálogo que crece por edición de datos, no de código). En su lugar, la
+optimización pasa por **`npm run imagenes`** (`scripts/optimizar-imagenes.mjs`, con
+`sharp`): lee las PNG maestras de `media/catalogo-png/` (fuera de git, ver
+`media/README.md`) y genera los `.webp` livianos de `public/images/productos/` más el
+`.jpg` de `og/`. Ver `docs/convenciones.md` para el nombre exacto de archivo.
+
+`scripts/verificar-sitio.mjs` (`npm run verificar`, y un paso del deploy) revisa el
+`dist/` ya construido: que cada `src`/`href`/`og:image` apunte a un archivo que existe
+con las mismas mayúsculas (GitHub Pages distingue mayúsculas; Windows no), que el
+`og:image` sea absoluto y liviano, y que ninguna imagen pase de 600 KB.
+
+## Deploy
+
+`.github/workflows/deploy.yml`: en cada push a `main`, Actions instala (Node 22),
+`npm run build`, `npm run verificar` y publica `dist/` en GitHub Pages. **No hay
+ambiente de prueba: todo push a `main` es producción.** Revisa con
+`npm run build && npm run preview` antes de hacer push.

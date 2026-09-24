@@ -1,5 +1,38 @@
 # AGENTS.md — Instrucciones de trabajo
 
+## 0. Contexto del proyecto
+
+Sitio Astro estático de **Confecciones Nancy** (repo público `bastiancs95/nancystore`).
+`npm run dev` / `build` / `preview` / `imagenes` / `verificar`. **No hacer push sin
+que Bastian lo pida** — cada push a `main` publica de inmediato en confeccionesnancy.cl.
+
+**Dónde mirar primero:**
+- `src/data/productos.ts` — el catálogo (slug, imágenes, descripción).
+- `src/data/site.ts` — número de WhatsApp.
+- `src/layouts/BaseLayout.astro` — head, SEO, og:image.
+- `docs/arquitectura-web.md` — cómo está armado el sitio.
+- `docs/convenciones.md` — nombres de archivos e imágenes.
+- `marketing/README.md` — estado actual del negocio/campañas.
+- `media/README.md` — si esta carpeta no existe, estás en otra máquina: no la
+  recrees, faltan las fotos fuente.
+
+**Reglas del proyecto:**
+- Los `slug` de `productos.ts` son inmutables: forman la URL, el sitemap y la lista
+  de deseos guardada en `localStorage` de cada visitante.
+- En `public/` solo va lo que el sitio realmente usa — todo lo que hay ahí se
+  publica tal cual en producción.
+- `media/` no tiene respaldo automático: nunca correr `git clean -x` / `-X` en este
+  repo, y borrar solo duplicados verificados por hash.
+- El repo es público: nunca commitear tokens, IDs de cuentas, ni valores de `.env`.
+- Trampas de Windows (mayúsculas, encoding, `Set-Content`): ver `docs/convenciones.md`.
+- Los agentes (`.claude/agents/*.md`) se editan ahí y se regeneran para Codex con
+  `python scripts/puente_codex.py --proyecto nancy-website --aplicar` desde el repo
+  `agente-proyectos` — no editar `.codex/agents/*.toml` a mano.
+
+**Cómo entregar trabajo:** tabla tarea/responsable/fecha, separando lo que Bastian
+hace remoto de lo que delega (hermano = fotos, papá/tía = tienda y WhatsApp). Evita
+planes teóricos sin pasos ejecutables.
+
 ## 1. No programar sin contexto
 - ANTES de escribir código: lee los archivos relevantes, revisa git log, entiende la arquitectura.
 - Si no tienes contexto suficiente, pregunta. No asumas.
