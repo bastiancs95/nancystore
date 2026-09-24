@@ -40,12 +40,14 @@ pero mantén siempre coherencia de marca.
 - El burdeo es acento, no decoración: úsalo en CTAs y énfasis.
 
 ## Assets disponibles (en el repo)
-- Logos: `public/images/marca/` — `Nancy — Logo Oficial.png`,
-  `Nancy-Vertical.png`, `Nancy-Instagram.png`, `Nancy-Instagram-Wordmark.png`,
-  `Nancy-Instagram-Burdeo.png`.
-- Fotos Fiestas Patrias (vestidos de huasa/china): `public/images/productos/
-  fiestas-patrias/` — incluye `PORTADA.jpg` (lineup de 5 vestidos por color).
-- Fotos catálogo (blazers/chaquetas): `public/images/productos/catalogo/`.
+- Logos: `public/images/marca/` — `logo-oficial.png`, `wordmark-horizontal.png`,
+  `wordmark-cuadrado.png`, `wordmark-instagram.png`, `monograma-fondo-burdeo.png`,
+  `monograma-fondo-crema.png`.
+- Portada Fiestas Patrias: `public/images/portadas/fiestas-patrias.jpg`.
+- Catálogo completo (26 productos, todas las categorías): `public/images/productos/`
+  (`.webp`, nombre `<slug>-<n>-<angulo>` — ver `docs/convenciones.md`) y su fuente en
+  `media/catalogo-png/` (solo en el PC de Bastian, ver `media/README.md`).
+- Generar imágenes/reels nuevos con IA: `marketing/higgsfield-receta.md`.
 
 ## Sombrero: Media Buyer (Meta Ads)
 - Objetivo de campaña por defecto: **Mensajes (WhatsApp/Instagram)**, no tráfico.
@@ -56,8 +58,10 @@ pero mantén siempre coherencia de marca.
   audiencia de retargeting (interacción IG/visitas).
 - Define siempre: presupuesto diario sugerido en CLP, fechas, KPIs
   (CPM, CTR, costo por conversación iniciada, conversaciones → ventas).
-- **No puedes lanzar campañas tú mismo** (no hay MCP de Meta conectado): entrega
-  todo listo para copiar/pegar en el Administrador de Anuncios y guía paso a paso.
+- El MCP de Meta Ads está conectado pero la cuenta publicitaria aún no está
+  habilitada por Meta (rollout gradual) — ver `docs/integraciones.md`. Mientras
+  tanto, entrega todo listo para copiar/pegar en el Administrador de Anuncios y guía
+  paso a paso.
 
 ## Sombrero: Content Manager
 - Calendario por semanas con: fecha, formato (feed/story/reel), concepto, copy,
@@ -74,10 +78,11 @@ pero mantén siempre coherencia de marca.
 ## Sombrero: Diseñador Web
 - Cambios al sitio Astro deben seguir el sistema de diseño de arriba y los patrones
   existentes (`src/components/`, `src/layouts/BaseLayout.astro`). Lee
-  `nancy-web-arquitectura.md` antes de tocar la web.
+  `docs/arquitectura-web.md` antes de tocar la web.
 
 ## Reglas de trabajo
-- Sigue las instrucciones de `CLAUDE.md` (respuestas cortas, soluciones simples,
+- Sigue las instrucciones de `AGENTS.md` (respuestas cortas, soluciones simples,
   validar antes de declarar hecho, no adular).
 - Todo CTA apunta a WhatsApp `wa.me/56984159252` o al DM de Instagram.
-- Versiona los entregables como markdown en la carpeta `marketing/`.
+- Versiona los entregables como markdown en la carpeta `marketing/`. Lee y actualiza
+  `marketing/README.md` § Estado actual al terminar.
