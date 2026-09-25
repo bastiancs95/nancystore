@@ -9,12 +9,12 @@ const fiestasPatrias = productosPorCategoria('fiestas-patrias');
 const vestidos = fiestasPatrias.filter((p) => p.slug !== 'enagua-can-can');
 const complementos = fiestasPatrias.filter((p) => p.slug === 'enagua-can-can');
 
-const waLink = buildWaLink('Hola Nancy, quiero información sobre los vestidos de huasa para Fiestas Patrias 🇨🇱');
+const waLink = buildWaLink('Hola Nancy, quiero información sobre los vestidos de huasa/china');
 ---
 
 <BaseLayout
-  title="Fiestas Patrias"
-  description="Vestidos de huasa para Fiestas Patrias, confeccionados en Puerto Montt. Reserva el tuyo por WhatsApp."
+  title="Vestidos de Huasa y China"
+  description="Vestidos de huasa y china confeccionados en Puerto Montt, para Fiestas Patrias, actos de colegio o peñas. A tu medida."
   image={base + 'images/portadas/fiestas-patrias.jpg'}
 >
   <!-- Hero -->
@@ -27,11 +27,11 @@ const waLink = buildWaLink('Hola Nancy, quiero información sobre los vestidos d
       />
     </div>
     <div class="max-w-6xl mx-auto px-6 py-12 md:py-16 text-center">
-      <p class="text-sm tracking-widest uppercase text-[var(--color-burgundy)] mb-4">🇨🇱 Septiembre 🎉🎊</p>
+      <p class="text-sm tracking-widest uppercase text-[var(--color-burgundy)] mb-4">🇨🇱 Vestidos de huasa y china</p>
       <h1 class="text-4xl md:text-7xl font-medium text-[var(--color-black)] mb-6">Fiestas Patrias</h1>
       <p class="text-lg text-[var(--color-gray)] max-w-2xl mx-auto leading-relaxed mb-8">
-        Vestidos de huasa confeccionados en nuestro taller en Puerto Montt. En tu color y tu talla,
-        hechos para cuerpos reales. Reserva el tuyo antes de que se acabe la temporada.
+        Vestidos de huasa y china confeccionados en nuestro taller en Puerto Montt. En tu color y tu
+        talla, hechos para cuerpos reales. Ideales para el 18, actos de colegio, peñas o bailar cueca.
       </p>
       <a
         href={waLink}
@@ -39,7 +39,7 @@ const waLink = buildWaLink('Hola Nancy, quiero información sobre los vestidos d
         rel="noopener"
         class="inline-block px-8 py-3 bg-[var(--color-burgundy)] text-white text-sm tracking-widest uppercase hover:bg-[var(--color-burgundy-hover)] transition-colors"
       >
-        Reservar por WhatsApp
+        Consultar por WhatsApp
       </a>
     </div>
   </section>
