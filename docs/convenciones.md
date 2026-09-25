@@ -19,6 +19,11 @@ en el nombre — las versiones se marcan con `-<n>`.
 `images/og/<slug>.jpg` (1200×630, sin `<n>`: uno por producto) se genera junto con la
 foto 1 de cada producto, no se nombra a mano.
 
+**Las fotos de `public/images/` se cachean 1 día en el navegador** (`public/_headers`).
+Si reemplazas la foto de una prenda que ya existe, súbela con **un nombre nuevo**
+(por ejemplo agregando `-2` al final) en vez de sobrescribir el mismo archivo —
+si no, quien ya visitó el sitio puede seguir viendo la foto vieja hasta 24 horas.
+
 ## Maestras (`media/catalogo-png/`, fuera de git)
 
 Mismo esquema `<slug>-<n>-<angulo>.png` — `npm run imagenes` exige este patrón
