@@ -96,7 +96,16 @@ con las mismas mayúsculas (GitHub Pages distingue mayúsculas; Windows no), que
 
 ## Deploy
 
-`.github/workflows/deploy.yml`: en cada push a `main`, Actions instala (Node 22),
-`npm run build`, `npm run verificar` y publica `dist/` en GitHub Pages. **No hay
-ambiente de prueba: todo push a `main` es producción.** Revisa con
-`npm run build && npm run preview` antes de hacer push.
+**El sitio lo publica Cloudflare Pages, no GitHub Pages.** Cloudflare está conectado
+directo al repo (`bastiancs95/nancystore`, rama `main`, deploy automático) y corre su
+propio build — panel: Cloudflare → Workers & Pages → `nancystore` → Settings → Build.
+El **build command ahí debe ser `npm run build && npm run verificar`**, para que el
+guardián de imágenes rotas/pesadas realmente bloquee lo que se publica.
+
+`.github/workflows/ci.yml` (antes `deploy.yml`) ya **no publica nada**: solo corre
+`npm ci && npm run build && npm run verificar` en cada push a `main` y en cada PR,
+como chequeo de CI independiente del de Cloudflare. GitHub Pages se desactivó porque
+servía una copia paralela y rota (sin `base` configurado, sin CSS) que nadie visitaba.
+
+**No hay ambiente de prueba: todo push a `main` dispara producción en Cloudflare.**
+Revisa con `npm run build && npm run preview` antes de hacer push.
