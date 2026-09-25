@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { waLink as buildWaLink } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
+const waLink = buildWaLink('Hola Nancy, llegué a un link que no encontré en la página');
+---
+
+<BaseLayout title="Página no encontrada" description="Esta página no existe o se movió.">
+  <section class="max-w-2xl mx-auto px-6 py-24 md:py-32 text-center">
+    <p class="text-sm tracking-widest uppercase text-[var(--color-burgundy)] mb-4">Error 404</p>
+    <h1 class="text-4xl md:text-6xl font-medium text-[var(--color-black)] mb-6">No encontramos esa página</h1>
+    <p class="text-lg text-[var(--color-gray)] mb-10 max-w-md mx-auto leading-relaxed">
+      El link puede estar mal escrito o la página ya no existe. Prueba en el catálogo o escríbenos
+      y te ayudamos a encontrar lo que buscas.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href={`${base}catalogo`} class="px-8 py-3 bg-[var(--color-burgundy)] text-white text-sm tracking-widest uppercase hover:bg-[var(--color-burgundy-hover)] transition-colors">
+        Ver catálogo
+      </a>
+      <a href={waLink} target="_blank" rel="noopener" class="px-8 py-3 border border-[var(--color-burgundy)] text-[var(--color-burgundy)] text-sm tracking-widest uppercase hover:bg-[var(--color-burgundy)] hover:text-white transition-colors">
+        Escríbenos
+      </a>
+    </div>
+  </section>
+</BaseLayout>

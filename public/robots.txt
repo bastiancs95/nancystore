@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /wsp/
+
+Sitemap: https://www.confeccionesnancy.cl/sitemap-index.xml

@@ -58,10 +58,15 @@ for (const html of htmls) {
       url = url.replace('https://www.confeccionesnancy.cl', '');
     }
     if (!url.startsWith('/')) continue; // relativo tipo whatsapp:// u otros, no nos interesa
-    let rel = url.slice(1).split('?')[0].split('#')[0];
-    if (rel === '' || rel.endsWith('/')) rel = path.posix.join(rel, 'index.html');
-    if (!existeExacto(rel)) {
-      // podria ser mayusculas distintas: avisar mas claro
+    const base = url.slice(1).split('?')[0].split('#')[0];
+    const sinSlash = base.replace(/\/$/, '');
+    // Astro sirve algunas rutas como archivo plano (ej. 404.html en vez de 404/index.html,
+    // porque asi lo esperan los hosts estaticos), asi que se acepta cualquiera de las dos formas.
+    const candidatos = base === ''
+      ? ['index.html']
+      : [path.posix.join(base, 'index.html'), `${sinSlash}.html`, sinSlash];
+    if (!candidatos.some(existeExacto)) {
+      const rel = candidatos[0];
       const existeCI = distFilesLower.has(rel.toLowerCase());
       console.error(`[ROTO] ${relHtml}: "${url}" -> dist/${rel} no existe${existeCI ? ' (existe con OTRAS MAYUSCULAS)' : ''}`);
       errores++;
