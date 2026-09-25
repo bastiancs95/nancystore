@@ -1,6 +1,7 @@
 ---
-import { categorias } from '../data/productos';
-const opciones = [{ id: 'todos', label: 'Todos' }, ...categorias];
+import { categorias, productos } from '../data/productos';
+const conProductos = categorias.filter((c) => productos.some((p) => p.categoria === c.id));
+const opciones = [{ id: 'todos', label: 'Todos' }, ...conProductos];
 ---
 
 <div class="flex flex-wrap gap-3 justify-center mb-12" data-filtros>
